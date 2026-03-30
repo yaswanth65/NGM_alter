@@ -292,16 +292,33 @@ export default function HomePage() {
   return (
     <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
       {/* HERO SECTION */}
-      <section ref={heroRef} className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0">
-        {/* Hero code remains exactly the same... */}
+      <section ref={heroRef} className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0 bg-black">
+
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Website%20Loader%20Video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Black Radial Overlay (Clearer in the center, darker at the edges) */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.8)_100%)]"></div>
+
+        {/* Existing Red Corner Gradient */}
         <div className="absolute bottom-0 right-0 w-[40vw] h-[60vh] pointer-events-none origin-bottom-right opacity-60 blur-[100px] z-0" style={{ background: 'linear-gradient(to top left, #a30800 0%, #ff1a1a 20%, transparent 60%)' }}></div>
+
+        {/* Text Content */}
         <div className="relative z-10 text-center px-[clamp(1.5rem,4vw,3rem)] max-w-7xl mx-auto pt-10">
           <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">
             Explore the true potential <br />
             <span className="text-neutral-400">of your brand</span>
           </h1>
           <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-neutral-400 max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
-            We help Mumbai brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
+            We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
           </p>
           <Link to="/contact" className="inline-block px-[clamp(2rem,5vw,2.5rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300 group">
             <span className="text-[clamp(0.75rem,1.5vw,0.875rem)] font-bold tracking-widest uppercase">Contact Us</span>
@@ -396,10 +413,11 @@ export default function HomePage() {
         </section>
 
         {/* Other Sections */}
-        <TrustedBySection />
+
         <AboutUsSection />
         <ServicesSection />
-        <StatsBarSection />
+        {/* <StatsBarSection /> */}
+        <TrustedBySection />
 
       </div>
     </div>
@@ -481,8 +499,42 @@ function TrustedBySection() {
 // ABOUT US SECTION (Static Version)
 // ----------------------------------------------------------------------
 function AboutUsSection() {
+  const sectionRef = useRef(null);
+  const numRefs = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      numRefs.current.forEach((el) => {
+        if (!el) return;
+        const targetVal = parseInt(el.getAttribute('data-target'), 10);
+        const suffix = el.getAttribute('data-suffix') || '';
+
+        gsap.fromTo(
+          el,
+          { innerText: 0 },
+          {
+            innerText: targetVal,
+            duration: 2.0,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 70%", // Triggers when the section is well within the screen
+              once: true, // Animates only once per page load
+            },
+            snap: { innerText: 1 }, // Ensures smooth integer counting
+            onUpdate: function () {
+              el.innerText = Math.round(this.targets()[0].innerText) + suffix;
+            }
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-black px-[clamp(1.5rem,4vw,3rem)] py-[clamp(4rem,10vw,6rem)] border-t border-white/5">
+    <section ref={sectionRef} className="w-full bg-black px-[clamp(1.5rem,4vw,3rem)] py-[clamp(4rem,10vw,6rem)] border-t border-white/5">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-[clamp(3rem,8vw,4rem)]">
         <div className="md:w-5/12 max-w-2xl flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-[clamp(1.5rem,4vw,2rem)]">
@@ -493,9 +545,12 @@ function AboutUsSection() {
           </div>
 
           <div className="mb-[clamp(2rem,5vw,3rem)]">
-            <h4 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-[clamp(1.5rem,4vw,2rem)] text-white leading-tight">
+            {/* <h4 className="text-[clamp(1.75rem,4vw,2.5rem)] mb-[clamp(1.5rem,4vw,2rem)] leading-tight font-bold">
               Get Nitty Gritty: Where Vision Meets Results.
-            </h4>
+            </h4> */}
+            <p className="text-[clamp(1.75rem,4vw,2.5rem)] mb-[clamp(1.5rem,4vw,2rem)] leading-tight font-bold">
+              Get Nitty Gritty: Where Vision Meets Results.
+            </p>
             <div className="space-y-[clamp(1rem,3vw,1.5rem)]">
               <p className="text-[clamp(1rem,2vw,1.25rem)] text-neutral-400 leading-relaxed font-light">
                 We combine creative storytelling with strategic production and digital expertise to help brands build visibility, generate leads, and sustain growth.
@@ -515,28 +570,48 @@ function AboutUsSection() {
 
         <div className="md:w-1/2 grid grid-cols-2 gap-x-[clamp(1rem,4vw,2rem)] gap-y-[clamp(2rem,6vw,4rem)] content-center">
           <div>
-            <span className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]">
-              300+
+            <span
+              ref={(el) => (numRefs.current[0] = el)}
+              data-target="500"
+              data-suffix="+"
+              className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]"
+            >
+              0+
             </span>
-            <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Films</span>
+            <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Shoots</span>
           </div>
           <div>
-            <span className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]">
-              250+
+            <span
+              ref={(el) => (numRefs.current[1] = el)}
+              data-target="50"
+              data-suffix="+"
+              className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]"
+            >
+              0+
             </span>
             <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Brands</span>
           </div>
           <div>
-            <span className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]">
-              100+
+            <span
+              ref={(el) => (numRefs.current[2] = el)}
+              data-target="80"
+              data-suffix="+"
+              className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]"
+            >
+              0+
             </span>
             <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Websites</span>
           </div>
           <div>
-            <span className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]">
-              10+
+            <span
+              ref={(el) => (numRefs.current[3] = el)}
+              data-target="10"
+              data-suffix="L+"
+              className="block text-[clamp(3rem,6vw,4.5rem)] font-bold text-white mb-[clamp(0.25rem,1vw,0.75rem)]"
+            >
+              0L+
             </span>
-            <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Awards</span>
+            <span className="text-[clamp(0.65rem,1vw,0.75rem)] text-neutral-500 uppercase tracking-[0.2em] font-medium">Marketing Spends</span>
           </div>
         </div>
       </div>

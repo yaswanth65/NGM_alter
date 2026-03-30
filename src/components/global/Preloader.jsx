@@ -10,7 +10,7 @@ export default function Preloader() {
     const containerRef = useRef(null);
     const textRef = useRef(null);
     const videoRef = useRef(null); // 1. Added ref for the video
-    
+
     const [index, setIndex] = useState(0);
     const [isVideoReady, setIsVideoReady] = useState(false); // 2. State to track video loading
 
@@ -112,7 +112,8 @@ export default function Preloader() {
                 playsInline
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none"
-                src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Website%20Loader%20Video.mp4"
+                // src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Website%20Loader%20Video.mp4"
+                src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Banner%20Video.mp4"
                 onCanPlayThrough={() => setIsVideoReady(true)} // 7. Triggers the GSAP animation when buffered
                 onError={() => setIsVideoReady(true)} // 8. Fallback: play animation anyway if video totally fails to load
             />
