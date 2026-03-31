@@ -125,39 +125,65 @@ export default function AboutPage() {
 
             {/* How We Work Section */}
             <section className="max-w-7xl mx-auto px-6 mb-32">
-                <div className="max-w-4xl mx-auto text-center space-y-8">
 
-                    {/* Tag */}
-                    <div className="flex items-center justify-center gap-2 text-red-600 uppercase tracking-widest text-sm font-bold">
-                        <svg className="w-5 h-5 text-red-600 fill-current" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" /></svg>
-                        How We Work
-                    </div>
-
-                    {/* Heading */}
-                    <h2 className="text-4xl md:text-5xl font-bold font-outfit uppercase leading-tight text-white">
-                        We don&apos;t believe in <span className="text-red-600 italic font-medium">one-size-fits-all</span> solutions.
-                    </h2>
-
-                    {/* Paragraph */}
-                    <p className="text-neutral-400 text-lg leading-relaxed font-light md:px-10">
-                        Every brand has a different story, a different audience, and a different journey. That&apos;s why we take time to understand your business, your challenges, and your goals before building a strategy that actually works for you.
-                    </p>
-
-                    {/* Steps - Single Line Flow */}
-                    <div className="pt-8 border-t border-b pb-8 border-white/5 mt-12">
-                        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-6 text-xl md:text-2xl font-outfit font-bold uppercase text-white">
-                            <span>Understand <span className="text-red-500 italic font-medium lowercase">deeply</span></span>
-                            <span className="text-white/20 hidden md:inline-block">→</span>
-
-                            <span>Plan <span className="text-red-500 italic font-medium lowercase">strategically</span></span>
-                            <span className="text-white/20 hidden md:inline-block">→</span>
-
-                            <span>Execute <span className="text-red-500 italic font-medium lowercase">consistently</span></span>
-                            <span className="text-white/20 hidden md:inline-block">→</span>
-
-                            <span>Optimize <span className="text-red-500 italic font-medium lowercase">continuously</span></span>
+                {/* Header Area */}
+                <div className="flex flex-col md:flex-row gap-8 md:gap-16 justify-between items-start mb-16">
+                    {/* Left: Heading */}
+                    <div className="md:w-1/2 space-y-6">
+                        <div className="flex items-center gap-2 text-red-600 uppercase tracking-widest text-sm font-bold">
+                            <svg className="w-5 h-5 text-red-600 fill-current" viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" /></svg>
+                            How We Work
                         </div>
+                        <h2 className="text-4xl md:text-5xl font-bold font-outfit uppercase leading-tight text-white">
+                            We don&apos;t believe in <span className="text-red-600 italic font-medium">one-size-fits-all</span> solutions.
+                        </h2>
                     </div>
+
+                    {/* Right: Paragraph */}
+                    <div className="md:w-1/2 md:pt-12 text-neutral-400 text-lg leading-relaxed font-light">
+                        <p>
+                            Every brand has a different story, a different audience, and a different journey. That&apos;s why we take time to understand your business, your challenges, and your goals before building a strategy that actually works for you.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Steps Grid: Line made bold (h-[2px]) and solid white (bg-white) */}
+                <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-y-12 lg:gap-10 lg:gap-y-6 lg:after:content-[''] lg:after:absolute lg:after:top-1/2 lg:after:left-[10%] lg:after:right-[10%] lg:after:h-[2px] lg:after:bg-white lg:after:-translate-y-1/2 lg:after:z-0">
+
+                    {[
+                        { title: "Understand", sub: "deeply", num: "01" },
+                        { title: "Plan", sub: "strategically", num: "02" },
+                        { title: "Execute", sub: "consistently", num: "03" },
+                        { title: "Optimize", sub: "continuously", num: "04" },
+                    ].map((step, index) => (
+                        <div
+                            key={index}
+                            // Removed overflow-hidden so the chevron can display outside the card's boundary
+                            className="relative z-10 p-6 md:p-5 lg:p-6 rounded-[24px] bg-neutral-900 border border-white/5 transition-all duration-500"
+                        >
+                            {/* Simplified Step Content */}
+                            <div>
+                                <div className="text-red-600 font-bold font-outfit text-xl mb-4">
+                                    {step.num}.
+                                </div>
+                                <h3 className="text-xl font-bold text-white font-outfit mb-1 uppercase tracking-wide">
+                                    {step.title}
+                                </h3>
+                                <p className="text-red-500 font-medium italic tracking-wide text-base">
+                                    {step.sub}
+                                </p>
+                            </div>
+
+                            {/* Bold White Chevron Arrow perfectly centered in the gap */}
+                            {index < 3 && (
+                                <div className="hidden lg:flex absolute top-1/2 -right-[32px] w-6 h-6 -translate-y-1/2 items-center justify-center bg-black text-white z-20 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="9 18 15 12 9 6" className="text-red-500"></polyline>
+                                    </svg>
+                                </div>
+                            )}
+                        </div>
+                    ))}
 
                 </div>
             </section>

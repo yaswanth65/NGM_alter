@@ -92,7 +92,7 @@ export default function ServicesPage() {
         },
         {
             title: "Graphic Designing",
-            slug: "graphic-designing",
+            slug: "graphic-design",
             features: ["Brand Identity", "UI/UX Design", "Social Media Creatives", "Logo Design"],
             description: "Creative visual communication: logos, brand identities, and marketing assets that define your brand's unique voice.",
             imageSrc: "/services/Designing 2.jpg",
