@@ -17,9 +17,9 @@ export default function Footer() {
                             </p>
 
                             <div className="text-red-600 hover:text-red-500 transition-colors font-bold tracking-[0.5em] uppercase text-sm">
-                            <a href="/about/studio">
-                                Explore our Studio
-                            </a>
+                                <a href="/studio">
+                                    Explore our Studio
+                                </a>
                             </div>
                         </div>
                     </div>
