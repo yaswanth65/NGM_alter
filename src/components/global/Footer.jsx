@@ -5,16 +5,22 @@ export default function Footer() {
         <footer className="relative z-20 bg-black text-white py-[clamp(3rem,8vw,5rem)] border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-[clamp(1.5rem,4vw,3rem)]">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-y-[clamp(3rem,8vw,4rem)] md:gap-x-[clamp(1.5rem,3vw,2rem)] mb-[clamp(3rem,8vw,5rem)]">
-                    
+
                     {/* COLUMN 1: OFFICES (Span 4) */}
                     <div className="md:col-span-4 flex flex-col gap-[clamp(1.5rem,4vw,3rem)]">
                         <div>
                             <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Corporate Office</h3>
-                            <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed max-w-xs">
+                            <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed max-w-xs mb-10">
                                 Office no. 733, Centura Square, Rd Number 27,<br />
                                 opp. Lanxess, Wagle Industrial Estate,<br />
                                 Thane West, Thane, Maharashtra 400604
                             </p>
+
+                            <div className="text-red-600 hover:text-red-500 transition-colors font-bold tracking-[0.5em] uppercase text-sm">
+                            <a href="/about/studio">
+                                Explore our Studio
+                            </a>
+                            </div>
                         </div>
                     </div>
 
@@ -40,7 +46,7 @@ export default function Footer() {
                             <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Official Partners</h3>
                             {/* Added flex-wrap so partners stack cleanly on very small screens instead of overflowing */}
                             <div className="flex flex-wrap items-center gap-[clamp(1.5rem,4vw,3rem)]">
-                                
+
                                 {/* Meta Partner Logo */}
                                 <div className="flex items-center gap-[0.75rem]">
                                     <div className="bg-[#0064E0] p-[0.375rem] rounded-sm">
@@ -83,15 +89,15 @@ export default function Footer() {
                         <div>
                             <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Business</h3>
                             {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:business@nittygrittymedia.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                business@nittygrittymedia.com
+                            <a href="mailto:business@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
+                                business@nittygrittyverse.com
                             </a>
                         </div>
                         <div>
                             <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Careers</h3>
                             {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:info@nittygrittymedia.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                info@nittygrittymedia.com
+                            <a href="mailto:careers@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
+                                careers@nittygrittyverse.com
                             </a>
                         </div>
                     </div>
@@ -107,7 +113,6 @@ export default function Footer() {
                         <Link to="#" className="hover:text-red-500 transition-colors">Youtube</Link>
                         <a href="https://www.linkedin.com/company/nittygrittymedia/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">LinkedIn</a>
                         <a href="https://www.instagram.com/nitty_gritty_media/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
-                        <Link to="#" className="hover:text-red-500 transition-colors">X</Link>
                         <a href="https://www.facebook.com/NGMAdvertising2020" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Facebook</a>
                     </div>
                 </div>

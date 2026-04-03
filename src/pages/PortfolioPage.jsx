@@ -3,16 +3,14 @@
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import { projects } from "@/data/projects";
+import { photography } from '../data/photography';
 
-const mainCategories = ["Videos", "Websites", "Social Media", "SEO"];
+const mainCategories = ["Videos", "Websites", "Social Media", "SEO", "Photography"];
 const subCategories = [
     "All",
     "Brand Documentaries",
     "Corporate Films",
     "Podcast",
-    "Events",
-    "Documentaries",
-    "Animation",
     "Advertisement",
     "Promos",
     "Business Explainer",
@@ -23,6 +21,7 @@ export default function PortfolioPage() {
     const [activeMainCategory, setActiveMainCategory] = useState("Videos");
     const [activeSubCategory, setActiveSubCategory] = useState("All");
 
+
     const filteredProjects = useMemo(() => {
         return projects.filter((project) => {
             const mainMatch = project.category === activeMainCategory;
@@ -31,6 +30,21 @@ export default function PortfolioPage() {
             return mainMatch && subMatch;
         });
     }, [activeMainCategory, activeSubCategory]);
+
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+    const openLightbox = (index) => setSelectedImageIndex(index);
+    const closeLightbox = () => setSelectedImageIndex(null);
+
+    const showNext = (e) => {
+        e.stopPropagation();
+        setSelectedImageIndex((prev) => (prev + 1) % photography.length);
+    };
+
+    const showPrev = (e) => {
+        e.stopPropagation();
+        setSelectedImageIndex((prev) => (prev - 1 + photography.length) % photography.length);
+    };
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
@@ -124,6 +138,87 @@ export default function PortfolioPage() {
                         </Link>
                     ))}
                 </div>
+
+                {activeMainCategory === "Photography" && (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+                        {photography.map((item, index) => (
+                            <div
+                                key={item.id}
+                                className="relative overflow-hidden rounded-xl cursor-pointer group aspect-square bg-neutral-900"
+                                onClick={() => openLightbox(index)}
+                            >
+                                <img
+                                    src={item.image}
+                                    alt={`Gallery ${item.id}`}
+                                    className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 ease-out group-hover:scale-105"
+                                />
+                                {/* Minimalist Premium Overlay */}
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                    <span className="text-sm tracking-[0.5em] uppercase font-semibold text-white border-b-2 border-white/30 pb-1">
+                                        View Frame
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {selectedImageIndex !== null && (
+                    <div
+                        className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 transition-opacity duration-500 pt-20"
+                        onClick={closeLightbox}
+                    >
+                        {/* Refined Rotating Close Button */}
+                        {/* THE REFACTORED PREMIUM CLOSE BUTTON */}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                closeLightbox();
+                            }}
+                            className="absolute top-20 right-10 z-101 p-4 group cursor-pointer"
+                            aria-label="Close"
+                        >
+                            <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-90">
+                                {/* h-[3px] gives that bold, premium look you're after */}
+                                <span className="absolute w-full h-[3px] bg-white rounded-full rotate-45 transition-all duration-300 group-hover:bg-red-500"></span>
+                                <span className="absolute w-full h-[3px] bg-white rounded-full -rotate-45 transition-all duration-300 group-hover:bg-red-500"></span>
+                            </div>
+                        </button>
+
+                        {/* Navigation: Left */}
+                        <button
+                            onClick={showPrev}
+                            className="absolute left-8 text-white/30 hover:text-white text-7xl z-[10000] transition-all duration-300 hover:scale-110 active:scale-95 p-4"
+                        >
+                            &#8249;
+                        </button>
+
+                        {/* Main Image Container */}
+                        <div
+                            className="relative max-w-5xl max-h-[85vh] flex items-center justify-center select-none"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={photography[selectedImageIndex].image}
+                                className="max-w-full max-h-[80vh] object-contain shadow-2xl rounded-sm animate-in fade-in zoom-in duration-500 ease-out"
+                                alt="Enlarged gallery view"
+                            />
+
+                            {/* Index Counter */}
+                            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/40 tracking-widest text-sm uppercase mt-[-10]">
+                                {selectedImageIndex + 1} <span className="mx-2">/</span> {photography.length}
+                            </div>
+                        </div>
+
+                        {/* Navigation: Right */}
+                        <button
+                            onClick={showNext}
+                            className="absolute right-8 text-white/30 hover:text-white text-7xl z-[10000] transition-all duration-300 hover:scale-110 active:scale-95 p-4"
+                        >
+                            &#8250;
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -17,30 +17,30 @@ export default function AboutPage() {
         {
             name: "Pratik Jambhale",
             role: "Founder",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+            image: "/profiles/Pratik Jambhale.png",
             linkedin: "https://www.linkedin.com/in/pratik-jambhale-64b85270/",
             description: "A dynamic visual storyteller with 10+ years of media experience. He crafts impactful content across film, digital, and branded formats."
         },
         {
             name: "Anoop Pawar",
-            role: "Team Member",
-            image: "/team/anoop.jpg",
+            role: "Post-Production Supervisor",
+            image: "/profiles/Anoop Pawar.jpg",
             linkedin: "https://www.linkedin.com/in/anooppawar/",
-            description: ""
+            description: "I transform raw footage into compelling visual stories. From handling end-to-end post-production to crafting seamless, engaging edits, I create content that doesn't just look good - it connects, resonates, and leaves a lasting impact."
         },
         {
-            name: "Sandeep Sharma",
-            role: "Digital Head",
-            image: "/team/sandeep.jpg",
-            linkedin: "https://www.linkedin.com/in/sandeep-sharma-21601428/",
-            description: "Digital Marketting specialist with 10+ years of experience in crafting createive strategies and seamless execution. He has managed 500+ client accounts, driving measurable impact."
+            name: "Shashank Dalvi",
+            role: "Director of Photography",
+            image: "/profiles/Shashank Dalvi.png",
+            linkedin: "https://www.linkedin.com/in/shashank-dalvi-21601428/",
+            description: "A Seasoned Photographer with 9+ years of experience in commercial photography and cinematography, with an in depth understanding of current trends and creative visualisations"
         },
         {
             name: "Abhishek Patankar",
             role: "Content Head",
-            image: "/team/abhishek.jpg",
+            image: "/profiles/Abhishek Patankar.png",
             linkedin: "https://www.linkedin.com/in/abhishek-patankar-246a98290/",
-            description: "L&D professional with 12+ years of experience, now an actor, voiceover artist, scriptwriter and content strategist, with natural flair for sttorytelling across film, media and brand content."
+            description: "L&D professional with 12+ years of experience, now an actor, voiceover artist, scriptwriter and content strategist, with natural flair for storytelling across film, media and brand content."
         }
     ];
 
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <section className="max-w-7xl mx-auto px-6 mb-32">
                 <div className="gap-16 items-start">
                     <div>
-                        <h2 className="text-3xl font-bold font-outfit uppercase mb-8 tracking-wide text-white">
+                        <h2 className="text-3xl font-bold font-outfit mb-8 tracking-wide text-white">
                             Get Nitty Gritty: <span className="text-red-600">Where Vision Meets Results.</span>
                         </h2>
                         <div className="space-y-6 text-neutral-400 text-lg leading-relaxed font-semibold max-w-5xl justify-evenly">
@@ -304,9 +304,9 @@ export default function AboutPage() {
                                 </div>
 
                                 {/* BOTTOM ROW: Expanding Description */}
-                                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out justify-around">
                                     <div className="overflow-hidden">
-                                        <p className="text-neutral-400 text-md sm:text-md mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                        <p className="text-white text-md sm:text-md mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                             {member.description || "Passionate about scaling D2C brands through data-driven strategies and innovative customer experiences."}
                                         </p>
                                     </div>

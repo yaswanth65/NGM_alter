@@ -14,6 +14,7 @@ const ClientsPage = lazy(() => import('./pages/ClientsPage'));
 const CareersPage = lazy(() => import('./pages/CareersPage'));
 const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage'));
 const ServiceDetails = lazy(() => import('./pages/ServiceDetails'));
+const StudioPage = lazy(() => import('./pages/StudioPage'));
 
 // Simple loading fallback
 const PageLoader = () => (
@@ -31,6 +32,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
+                        <Route path="/about/studio" element={<StudioPage />}/>
                         <Route path="/services" element={<ServicesPage />} />
                         <Route path="/services/:id" element={<ServiceDetails />} />
                         <Route path="/contact" element={<ContactPage />} />
