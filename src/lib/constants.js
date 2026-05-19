@@ -15,5 +15,4 @@ export const NAVIGATION = [
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Clients', href: '/clients' },
     { name: 'Careers', href: '/careers' },
-    { name: "Let's Talk", href: '/contact' },
 ];

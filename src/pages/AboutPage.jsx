@@ -25,7 +25,7 @@ export default function AboutPage() {
     {
         name: "Sonal Rane",
         role: "Senior Executive Digital Marketing",
-        image: "/profiles/Sonal Rane.png",
+        image: "/profiles/Sonal Jain1.jpg",
         linkedin: "https://www.linkedin.com/",
         description: "Digital marketing professional with 5 years of experience in social media strategy, content creation, and campaign management, delivering measurable growth and scalable results."
     },
