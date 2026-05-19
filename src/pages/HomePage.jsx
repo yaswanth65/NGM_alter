@@ -6,6 +6,7 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Image from '../components/common/Image'; // Ensure this path is correct in your setup
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/common/SEO';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -193,10 +194,10 @@ export default function HomePage() {
           scrollTrigger: {
             trigger: showreelSectionRef.current,
             start: "top top",
-            end: "+=200%",
+            end: "+=100%",
             pin: true,
-            scrub: 1,
-            anticipatePin: 1,
+            scrub: true,
+            anticipatePin: 0,
             onUpdate: (self) => {
               const isCurrentlyExpanded = self.progress === 1;
 
@@ -219,7 +220,7 @@ export default function HomePage() {
           height: "85vh",
           top: "10vh",
           borderRadius: "0px",
-          ease: "power2.inOut",
+          ease: "none",
           autoRound: false, // CRITICAL FIX: Stops width/height sub-pixel jittering
           force3D: true,
         }, 0);
@@ -227,11 +228,11 @@ export default function HomePage() {
         tl.to(showreelTitleRef.current, {
           y: -100,
           opacity: 0.5,
-          ease: "power2.inOut",
+          ease: "none",
         }, 0);
 
         if (verveTextRef.current) {
-          tl.to(verveTextRef.current, { scale: 1.5, opacity: 0, ease: "power2.inOut" }, 0);
+          tl.to(verveTextRef.current, { scale: 1.5, opacity: 0, ease: "none" }, 0);
         }
 
         if (heroRef.current) {
@@ -291,6 +292,12 @@ export default function HomePage() {
 
   return (
     <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
+      <SEO
+        title="Home"
+        description="We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue."
+        keywords="Nitty Gritty, video production, digital marketing, brand growth, creative agency Mumbai"
+        canonical="https://nittygrittylabz.com"
+      />
       {/* HERO SECTION */}
       <section ref={heroRef} className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0 bg-black">
 
@@ -315,7 +322,7 @@ export default function HomePage() {
         <div className="relative z-10 text-center px-[clamp(1.5rem,4vw,3rem)] max-w-7xl mx-auto pt-10">
           <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">
             Explore the true potential <br />
-            <span className="text-neutral-400">of your brand</span>
+            <span className="text-red-500/90">of your brand</span>
           </h1>
           <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-neutral-400 max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
             We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
@@ -660,7 +667,7 @@ const services = [
     slug: "photography",
     tagline: "Capturing moments that tell a story.",
     description: "Professional photography for brands, events, and products. High-quality visuals that resonate with your audience.",
-    buttonText: "See our gallery",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
@@ -674,7 +681,7 @@ const services = [
     slug: "web-app-development",
     tagline: "Building digital ecosystems for growth.",
     description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
-    buttonText: "View our stack",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
@@ -690,7 +697,7 @@ const services = [
     slug: "digital-marketing",
     tagline: "Connecting your brand to the right audience.",
     description: "Data-driven strategies across SEO, social media, and performance marketing to scale your presence and generate leads.",
-    buttonText: "Boost your brand",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="m12 14 4-4" />
@@ -704,7 +711,7 @@ const services = [
     slug: "video-production",
     tagline: "Dynamic visual storytelling designed to engage.",
     description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
-    buttonText: "See what we've filmed",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="23 7 16 12 23 17 23 7" />
@@ -715,10 +722,10 @@ const services = [
   {
     id: "05",
     title: "GRAPHIC DESIGNING",
-    slug: "graphic-designing",
+    slug: "graphic-design",
     tagline: "Identity in every pixel.",
     description: "Creative visual communication: logos, brand identities, and marketing assets that define your brand's unique voice.",
-    buttonText: "Explore our designs",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 19l7-7 3 3-7 7-3-3z" />

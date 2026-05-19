@@ -108,6 +108,64 @@ export const servicesData = [
     cta: "If your brand needs to be seen the right way, we know exactly how to frame it." // [cite: 57]
   },
   {
+    id: "web-app-development",
+    title: "Web & App Development",
+    intro: {
+      tagline: "Digital experiences that work as hard as you do.",
+      paragraphs: [
+        "Your website or app is often the first real interaction someone has with your brand.",
+        "At Nitty Gritty Media, we build digital products that are fast, intuitive, and built to convert.",
+        "Because a great product experience is the difference between a visitor and a customer."
+      ]
+    },
+    whatWeCreate: {
+      sectionTitle: "What We Build",
+      subtitle: "We focus on performant, scalable digital solutions.",
+      items: [
+        "Responsive Websites",
+        "Web Applications",
+        "Mobile Apps (iOS & Android)",
+        "E-commerce Platforms",
+        "CMS & Dashboard Interfaces",
+        "UI/UX Design & Prototyping"
+      ],
+      conclusion: "Every product is built with performance, usability, and growth in mind."
+    },
+    approach: {
+      sectionTitle: "Our Approach",
+      tagline: "We don't just code. We solve problems.",
+      blocks: [
+        {
+          heading: "Before we write a line of code, we understand:",
+          items: [
+            "Your business goals",
+            "Your user's needs",
+            "The problem we're solving"
+          ]
+        },
+        {
+          heading: "Then we build with purpose:",
+          items: [
+            "Strategy & Architecture",
+            "Design & Prototyping",
+            "Development & Testing",
+            "Deployment & Optimization"
+          ]
+        }
+      ],
+      conclusion: "Because great code without strategy is just pixels."
+    },
+    whyUs: {
+      sectionTitle: "Why Nitty Gritty",
+      paragraphs: [
+        "We combine design thinking with technical expertise.",
+        "Which means your digital product doesn't just look good, it performs.",
+        "No bloat. No unnecessary complexity. Just clean, functional, scalable solutions."
+      ]
+    },
+    cta: "If your business deserves a digital presence that actually works, let's build it."
+  },
+  {
     id: "digital-marketing",
     title: "Digital Marketing", // [cite: 58]
     intro: {

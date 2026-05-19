@@ -2,10 +2,17 @@
 import { Link } from "react-router-dom";
 import ClientCategorySection from '@/components/clients/ClientCategorySection';
 import { clientsList } from '@/data/clients-list';
+import SEO from "../components/common/SEO";
 
 export default function ClientsPage() {
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
+            <SEO
+                title="Clients"
+                description="Our esteemed clients across industries — brands that trust Nitty Gritty Media for video production, digital marketing, and creative solutions."
+                keywords="Nitty Gritty clients, brands we work with, client list Mumbai agency"
+                canonical="https://nittygrittylabz.com/clients"
+            />
             {/* Background Glows */}
             <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
             <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>

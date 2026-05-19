@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import { projects } from "@/data/projects";
+import SEO from "../components/common/SEO";
 import { photography } from '../data/photography';
 
 const mainCategories = ["Videos", "Websites", "Social Media", "SEO", "Photography"];
@@ -48,6 +49,12 @@ export default function PortfolioPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
+            <SEO
+                title="Portfolio"
+                description="View our portfolio of video production, photography, web development, and digital marketing projects by Nitty Gritty Media."
+                keywords="Nitty Gritty portfolio, video production portfolio, photography portfolio, digital marketing case studies"
+                canonical="https://nittygrittylabz.com/portfolio"
+            />
             <div className="max-w-7xl mx-auto px-6 pt-15">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center mb-16 text-center">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import SEO from "../components/common/SEO";
 
 const openings = [
     { id: "01", title: "SEO EXECUTIVE", location: "Mumbai" },
@@ -25,6 +26,12 @@ export default function CareersPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20 relative overflow-hidden">
+            <SEO
+                title="Careers"
+                description="Join the Nitty Gritty Media team. Explore career opportunities in video production, digital marketing, design, and more."
+                keywords="Nitty Gritty careers, jobs at Nitty Gritty, creative agency jobs Mumbai, media production careers"
+                canonical="https://nittygrittylabz.com/careers"
+            />
             {/* Red Glow */}
             <div className="absolute top-[-100px] right-0 w-[600px] h-[600px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
             <div className="absolute top-[20%] left-[-100px] w-[400px] h-[400px] bg-red-600/5 blur-[120px] -z-10 pointer-events-none"></div>
@@ -35,7 +42,7 @@ export default function CareersPage() {
                     CAREER
                 </h1>
                 <div className="flex items-center justify-center gap-2 text-neutral-500 text-sm tracking-widest uppercase font-medium">
-                    <span>Home</span>
+                    <Link to="/" className="hover:text-white transition-colors">Home</Link>
                     <span>/</span>
                     <span className="text-white">Career</span>
                 </div>
@@ -120,7 +127,10 @@ export default function CareersPage() {
                                 There's more to work here than briefs and deadlines. From festival celebrations and team lunches to month-end team activities and the occasional fun real shoots, there's always something to bring the team together. The energy here is easygoing but focused, with people who back each other and ideas that build through conversation.
                             </p>
                             <p className="text-neutral-500 text-sm font-medium">
-                                See the roles that click? Slide into our inbox.
+                                See the roles that click? Slide into our inbox at{' '}
+                                <a href="mailto:careers@nittygrittylabz.com" className="text-red-500 hover:text-red-400 transition-colors">
+                                    careers@nittygrittylabz.com
+                                </a>
                             </p>
                         </div>
                     </div>

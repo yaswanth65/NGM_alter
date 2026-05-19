@@ -3,6 +3,7 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { servicesData } from "../data/serviceData"; // Adjust path as needed
 import ContactSection from "@/components/global/ContactSection"; // Assuming you want this at the bottom
+import SEO from "../components/common/SEO";
 
 const ServiceDetails = () => {
     const { id } = useParams();
@@ -17,6 +18,12 @@ const ServiceDetails = () => {
 
     return (
         <main className="bg-black min-h-screen text-white pt-32">
+            <SEO
+                title={service.title}
+                description={service.intro.tagline}
+                keywords={`${service.title.toLowerCase()}, Nitty Gritty, ${service.title.toLowerCase()} services Mumbai`}
+                canonical={`https://nittygrittylabz.com/services/${id}`}
+            />
             
             {/* 1. Hero / Breadcrumb Section */}
             <div className="max-w-7xl mx-auto px-6 mb-24 text-center pt-15">

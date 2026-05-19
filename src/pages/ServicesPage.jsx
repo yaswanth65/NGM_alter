@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 
 
 
@@ -102,6 +103,12 @@ export default function ServicesPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
+            <SEO
+                title="Services"
+                description="Nitty Gritty Media offers photography, web & app development, digital marketing, video production, and graphic design services."
+                keywords="digital marketing agency, video production company, web development Mumbai, photography services, graphic design"
+                canonical="https://nittygrittylabz.com/services"
+            />
             {/* Background Glows */}
             <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
 

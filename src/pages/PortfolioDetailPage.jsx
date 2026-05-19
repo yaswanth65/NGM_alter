@@ -1,13 +1,16 @@
 "use client";
 
 import { useParams, Link } from "react-router-dom";
+import { useRef } from "react";
 import { projects } from "@/data/projects";
 import ContactSection from "@/components/global/ContactSection";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import SEO from "../components/common/SEO";
 
 export default function PortfolioDetailPage() {
     const { id } = useParams();
     const project = projects.find((p) => p.id === parseInt(id));
+    const carouselRef = useRef(null);
 
     if (!project) {
         return (
@@ -24,6 +27,12 @@ export default function PortfolioDetailPage() {
 
     return (
         <main className="bg-black min-h-screen text-white pt-32">
+            <SEO
+                title={project.title}
+                description={project.description}
+                keywords={`${project.title}, ${project.category}, ${project.service}, Nitty Gritty portfolio`}
+                canonical={`https://nittygrittylabz.com/portfolio/${id}`}
+            />
             {/* Hero Section - Centered Title and Breadcrumbs */}
             <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
                 <h1 className="text-5xl md:text-8xl font-bold font-outfit uppercase tracking-tight mb-6">
@@ -85,23 +94,24 @@ export default function PortfolioDetailPage() {
 
             {/* Related Work Section */}
             <section className="max-w-7xl mx-auto px-6 mb-40">
+                <style>{`.no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
                 <div className="flex items-center justify-between mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold font-outfit uppercase tracking-tight">
                         Related Work
                     </h2>
                     <div className="flex gap-4">
-                        <button className="p-3 rounded-full border border-white/10 text-white hover:bg-neutral-800 transition-all">
+                        <button onClick={() => carouselRef.current?.scrollBy({ left: -400, behavior: 'smooth' })} className="p-3 rounded-full border border-white/10 text-white hover:bg-neutral-800 transition-all">
                             <ChevronLeft size={24} />
                         </button>
-                        <button className="p-3 rounded-full border border-white/10 text-white hover:bg-neutral-800 transition-all">
+                        <button onClick={() => carouselRef.current?.scrollBy({ left: 400, behavior: 'smooth' })} className="p-3 rounded-full border border-white/10 text-white hover:bg-neutral-800 transition-all">
                             <ChevronRight size={24} />
                         </button>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div ref={carouselRef} className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar">
                     {otherProjects.map((proj) => (
-                        <Link to={`/portfolio/${proj.id}`} key={proj.id} className="group block">
+                        <Link to={`/portfolio/${proj.id}`} key={proj.id} className="group block min-w-[300px] md:min-w-[350px] snap-start">
                             <div className="aspect-[16/10] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 mb-6 relative">
                                 {proj.videoUrl && (
                                     <>

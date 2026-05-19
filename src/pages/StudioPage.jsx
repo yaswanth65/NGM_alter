@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SEO from "../components/common/SEO";
 
 import {
     Mic,
@@ -27,6 +28,12 @@ const StudioPage = () => {
 
     return (
         <main className="bg-black min-h-screen text-white pt-32">
+            <SEO
+                title="Studio"
+                description="Explore Nitty Gritty Studio — our creative space for video production, photography, and digital content creation."
+                keywords="Nitty Gritty studio, creative studio Mumbai, video production studio, photography studio"
+                canonical="https://nittygrittylabz.com/studio"
+            />
             {/* 1. Breadcrumb & Hero Title */}
             <div className="max-w-7xl mx-auto px-6 mb-24 text-center pt-15">
                 <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">

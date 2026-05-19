@@ -17,10 +17,18 @@ export default function Footer() {
                             </p>
 
                             <div className="text-red-600 hover:text-red-500 transition-colors font-bold tracking-[0.5em] uppercase text-sm">
-                                <a href="/studio">
+                                <Link to="/studio">
                                     Explore our Studio
-                                </a>
+                                </Link>
                             </div>
+                        </div>
+                        <div>
+                            <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Studio</h3>
+                            <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed max-w-xs">
+                                Office no. 405, Centura Square, Rd Number 27,<br />
+                                opp. Lanxess, Wagle Industrial Estate,<br />
+                                Thane West, Thane, Maharashtra 400604
+                            </p>
                         </div>
                     </div>
 
@@ -83,7 +91,7 @@ export default function Footer() {
                         <div>
                             <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Phone</h3>
                             <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] break-words">
-                                +91 9833401634 / +91 9773636203
+                                +91 8976434267  / +91 9997355769  
                             </p>
                         </div>
                         <div>
@@ -94,11 +102,7 @@ export default function Footer() {
                             </a>
                         </div>
                         <div>
-                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Careers</h3>
-                            {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:careers@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                careers@nittygrittyverse.com
-                            </a>
+                           
                         </div>
                     </div>
                 </div>
@@ -110,7 +114,7 @@ export default function Footer() {
                     </div>
                     {/* flex-wrap allows links to jump to the next line on mobile instead of forcing horizontal scrolling */}
                     <div className="flex flex-wrap justify-center md:justify-end gap-x-[clamp(1rem,3vw,1.5rem)] gap-y-[0.5rem] uppercase tracking-wider font-medium text-white">
-                        <Link to="#" className="hover:text-red-500 transition-colors">Youtube</Link>
+                        <a href="https://www.youtube.com/@nittygrittymedia" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Youtube</a>
                         <a href="https://www.linkedin.com/company/nittygrittymedia/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">LinkedIn</a>
                         <a href="https://www.instagram.com/nitty_gritty_media/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
                         <a href="https://www.facebook.com/NGMAdvertising2020" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Facebook</a>
