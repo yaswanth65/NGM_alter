@@ -1,1 +1,0 @@
-import{j as t,H as a}from"./index-97SS1EIu.js";const i="Nitty Gritty Media";function m({title:e,description:n,keywords:s,canonical:r}){const o=e?`${e} | ${i}`:i;return t.jsxs(a,{children:[t.jsx("title",{children:o}),n&&t.jsx("meta",{name:"description",content:n}),s&&t.jsx("meta",{name:"keywords",content:s}),r&&t.jsx("link",{rel:"canonical",href:r})]})}export{m as S};

@@ -422,6 +422,28 @@ export default function HomePage() {
         {/* Other Sections */}
 
         <AboutUsSection />
+
+        {/* Rotating Marquee Strip */}
+        <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-transparent before:to-black before:z-10 before:pointer-events-none">
+          <div className="flex whitespace-nowrap animate-marquee">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent mx-6 flex items-center gap-6">
+                We build brands that people remember and businesses that grow
+                <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>
+              </span>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
+          }
+          .animate-marquee {
+            animation: marquee 10s linear infinite;
+          }
+        `}</style>
+
         <ServicesSection />
         {/* <StatsBarSection /> */}
         <TrustedBySection />
