@@ -4,6 +4,11 @@ export const servicesData = [
   {
     id: "video-production",
     title: "Video Production",
+    seo: {
+      title: "Video Production Agency in Mumbai | DVCs, TVCs & Corporate Films",
+      description: "Professional video production services including DVCs, TVCs, corporate films, drone cinematography, and post-production for brands and businesses.",
+      keywords: "Video Production Agency Mumbai, Corporate Film Production, Drone Cinematography Mumbai, TVC Production Agency"
+    },
     intro: {
       tagline: "Not just visuals. Stories that move people to act.",
       paragraphs: [
@@ -110,6 +115,11 @@ export const servicesData = [
   {
     id: "web-app-development",
     title: "Web & App Development",
+    seo: {
+      title: "Web & App Development Company in Mumbai | Nitty Gritty Labz",
+      description: "Build responsive websites and scalable mobile apps with custom web design, e-commerce solutions, UI/UX optimization, and performance-focused development.",
+      keywords: "Website Development Mumbai, App Development Company, E-commerce Website Development, Custom Web Design Agency"
+    },
     intro: {
       tagline: "Digital experiences that work as hard as you do.",
       paragraphs: [
@@ -167,7 +177,12 @@ export const servicesData = [
   },
   {
     id: "digital-marketing",
-    title: "Digital Marketing", // [cite: 58]
+    title: "Digital Marketing",
+    seo: {
+      title: "Digital Marketing Services in Mumbai & Thane | Nitty Gritty Labz",
+      description: "Boost your brand with digital marketing services including SEO, SEM, social media management, content strategy, and performance marketing by Nitty Gritty Labz.",
+      keywords: "Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai"
+    }, // [cite: 58]
     intro: {
       tagline: "Visibility is easy. Growth is intentional.", // [cite: 59]
       paragraphs: [
@@ -223,7 +238,12 @@ export const servicesData = [
   },
   {
     id: "graphic-design",
-    title: "Graphic Design", // [cite: 88]
+    title: "Graphic Design",
+    seo: {
+      title: "Graphic Designing & Branding Agency | Nitty Gritty Labz",
+      description: "Creative graphic design services including brand identity, logo design, UI/UX design, and social media creatives tailored for modern businesses.",
+      keywords: "Graphic Design Agency Mumbai, Brand Identity Design, Logo Design Agency, Social Media Creative Design"
+    }, // [cite: 88]
     intro: {
       tagline: "Design that communicates before you speak.", // [cite: 89]
       paragraphs: [

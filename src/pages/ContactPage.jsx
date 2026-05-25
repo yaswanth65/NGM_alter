@@ -40,10 +40,10 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-black text-white pt-32">
             <SEO
-                title="Contact Us"
-                description="Get in touch with Nitty Gritty Media. Let's discuss your next project — video production, digital marketing, web development, and more."
-                keywords="contact Nitty Gritty, Mumbai creative agency, video production inquiry, digital marketing consultation"
-                canonical="https://nittygrittylabz.com/contact"
+            title="Contact Nitty Gritty Labz | Digital Marketing Agency in Mumbai"
+        description="Get in touch with Nitty Gritty Labz for branding, digital marketing, social media management, content production, and creative strategy solutions."
+        keywords="Contact Nitty Gritty Labz, Digital Marketing Agency Mumbai, Social Media Agency Thane, Branding Agency, Creative Strategy"
+        canonical="https://nittygrittylabz.com/contact"
             />
             {/* Hero Section */}
             <div className="relative mb-24">

@@ -13,7 +13,7 @@ const ServiceTypes = ({ serviceTypes }) => {
                             {type.description}
                         </p>
                         <button className="w-fit px-6 py-2 rounded-full border border-white/20 text-sm uppercase tracking-widest text-neutral-300 hover:text-white hover:border-white transition-all duration-300">
-                            Read More
+                            Know More
                         </button>
                     </div>
                 ))}

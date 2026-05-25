@@ -42,15 +42,15 @@ export default function Preloader() {
 
         const tl = gsap.timeline();
 
-        // Math for perfect sync: 8 seconds total / 5 words = 1.6 seconds per word cycle
-        const transitionDuration = 0.15;
-        const holdDuration = 1.6 - (transitionDuration * 2);
+        // Math for perfect sync: ~5 seconds total / 5 words = 0.9s per word cycle
+        const transitionDuration = 0.1;
+        const holdDuration = 0.9 - (transitionDuration * 2);
 
-        // Initial word appearance (Takes 0.2s to fade in)
+        // Initial word appearance
         tl.fromTo(
             textRef.current,
             { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }
+            { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }
         );
 
         // Sequence for words
@@ -74,12 +74,12 @@ export default function Preloader() {
         tl.to(textRef.current, {
             opacity: 0,
             y: -10,
-            duration: 0.2,
+            duration: 0.15,
             delay: holdDuration,
             ease: "power2.inOut",
         }).to(containerRef.current, {
             yPercent: -100,
-            duration: 0.6,
+            duration: 0.5,
             ease: "power3.inOut",
             onComplete: () => {
                 if (containerRef.current) containerRef.current.style.display = "none";

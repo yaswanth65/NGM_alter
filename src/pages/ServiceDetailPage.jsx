@@ -280,7 +280,7 @@ export default function ServiceDetailPage() {
                                             </li>
                                         ))}
                                     </ul>
-                                    <button className="px-8 py-3 rounded-full border border-white/20 text-[10px] font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">READ MORE</button>
+                                    <button className="px-8 py-3 rounded-full border border-white/20 text-[10px] font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">KNOW MORE</button>
                                 </div>
                             ))}
                         </div>

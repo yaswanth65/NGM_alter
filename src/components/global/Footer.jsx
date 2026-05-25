@@ -38,14 +38,14 @@ export default function Footer() {
                             <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Services</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[clamp(1.5rem,4vw,2rem)] gap-y-[1rem]">
                                 <ul className="space-y-[clamp(0.75rem,2vw,1rem)] text-[clamp(0.875rem,1.5vw,1rem)] text-neutral-400">
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Film & Photography</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Websites and Apps</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
+                                    <li><Link to="/services/photography" className="hover:text-white transition-colors">Film & Photography</Link></li>
+                                    <li><Link to="/services/web-app-development" className="hover:text-white transition-colors">Websites and Apps</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
                                 </ul>
                                 <ul className="space-y-[clamp(0.75rem,2vw,1rem)] text-[clamp(0.875rem,1.5vw,1rem)] text-neutral-400">
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Digital Marketing</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Graphic Designing</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Digital Marketing</Link></li>
+                                    <li><Link to="/services/graphic-design" className="hover:text-white transition-colors">Graphic Designing</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -95,10 +95,9 @@ export default function Footer() {
                             </p>
                         </div>
                         <div>
-                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Business</h3>
-                            {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:business@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                business@nittygrittyverse.com
+                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Mail</h3>
+                            <a href="mailto:business@nittygrittylabz.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
+                                business@nittygrittylabz.com
                             </a>
                         </div>
                         <div>

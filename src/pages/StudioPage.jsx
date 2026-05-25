@@ -25,14 +25,42 @@ import {
 
 
 const StudioPage = () => {
+    const carousel1Ref = useRef(null);
+    const carousel2Ref = useRef(null);
+
+    const scroll = (ref, dir) => {
+        ref.current?.scrollBy({ left: dir * 340, behavior: 'smooth' });
+    };
+
+    const handleDragStart = (ref) => (e) => {
+        const container = ref.current;
+        if (!container) return;
+        const startX = e.pageX - container.offsetLeft;
+        const scrollLeft = container.scrollLeft;
+        const onMove = (ev) => {
+            ev.preventDefault();
+            const x = ev.pageX - container.offsetLeft;
+            container.scrollLeft = scrollLeft - (x - startX);
+        };
+        const onUp = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            container.classList.remove('cursor-grabbing');
+            container.classList.add('cursor-grab');
+        };
+        container.classList.remove('cursor-grab');
+        container.classList.add('cursor-grabbing');
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+    };
 
     return (
         <main className="bg-black min-h-screen text-white pt-32">
             <SEO
-                title="Studio"
-                description="Explore Nitty Gritty Studio — our creative space for video production, photography, and digital content creation."
-                keywords="Nitty Gritty studio, creative studio Mumbai, video production studio, photography studio"
-                canonical="https://nittygrittylabz.com/studio"
+            title="Content Production & Creative Studio in Mumbai | Nitty Gritty Labz"
+        description="Professional content production and studio solutions for brands including reels, product shoots, campaigns, podcasts, creator content, and commercial visuals."
+        keywords="Content Production Agency, Creative Studio Mumbai, Video Production Studio, Podcast Studio Mumbai, Commercial Visuals"
+        canonical="https://nittygrittylabz.com/studio"
             />
             {/* 1. Breadcrumb & Hero Title */}
             <div className="max-w-7xl mx-auto px-6 mb-24 text-center pt-15">
@@ -180,7 +208,33 @@ const StudioPage = () => {
                     </div>
                 </div>
             </section>
-
+{/* Apple Cards Carousel - Section 1 */}
+            <section className="max-w-7xl mx-auto px-6 mb-32">
+                <div className="flex items-center gap-3 text-red-600 uppercase tracking-[0.5em] text-sm font-bold mb-6">
+                    <div className="w-10 h-[1px] bg-red-600" />
+                    More Than Just a Studio
+                </div>
+                <div className="flex justify-between items-end mb-12">
+                    <h2 className="text-4xl md:text-5xl font-bold font-outfit uppercase leading-[1.1] text-white">
+                    </h2>
+                    <div className="hidden md:flex gap-3">
+                        <button onClick={() => scroll(carousel1Ref, -1)} className="w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-red-600 flex items-center justify-center transition-colors duration-300">
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <button onClick={() => scroll(carousel1Ref, 1)} className="w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-red-600 flex items-center justify-center transition-colors duration-300">
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div ref={carousel1Ref} onMouseDown={handleDragStart(carousel1Ref)} className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory no-scrollbar cursor-grab select-none">
+                    {["2.png","3.png","4.png","8.png","10.png","11.png","14.png","15.png"].map((img, i) => (
+                        <div key={i} className="min-w-[280px] md:min-w-[320px] snap-start rounded-[28px] overflow-hidden bg-neutral-900 border border-white/10 flex-shrink-0 group hover:border-red-600/40 transition-all duration-500">
+                            <img src={`/assets/studiopage/${img}`} alt={`Studio ${i + 1}`} className="w-full h-[380px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
+                        </div>
+                    ))}
+                </div>
+            </section>
+            
             {/* 4. What You Can Create Section */}
             <section className="max-w-7xl mx-auto px-6 mb-40">
                 <div className="text-center mb-20 space-y-4">
@@ -365,7 +419,32 @@ const StudioPage = () => {
                     </div>
                 </div>
             </section>
-
+                           {/* Apple Cards Carousel - Section 2 */}
+            <section className="max-w-7xl mx-auto px-6 mb-32">
+                <div className="flex items-center gap-3 text-red-600 uppercase tracking-[0.5em] text-sm font-bold mb-6">
+                    <div className="w-10 h-[1px] bg-red-600" />
+                    Explore More
+                </div>
+                <div className="flex justify-between items-end mb-12">
+                    <h2 className="text-4xl md:text-5xl font-bold font-outfit uppercase leading-[1.1] text-white">
+                    </h2>
+                    <div className="hidden md:flex gap-3">
+                        <button onClick={() => scroll(carousel2Ref, -1)} className="w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-red-600 flex items-center justify-center transition-colors duration-300">
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <button onClick={() => scroll(carousel2Ref, 1)} className="w-11 h-11 rounded-full border border-white/20 bg-white/5 hover:bg-red-600 flex items-center justify-center transition-colors duration-300">
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div ref={carousel2Ref} onMouseDown={handleDragStart(carousel2Ref)} className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory no-scrollbar cursor-grab select-none">
+                    {["16.png","17.png","18.png","19.png","20.png","21.png","22.png"].map((img, i) => (
+                        <div key={i} className="min-w-[280px] md:min-w-[320px] snap-start rounded-[28px] overflow-hidden bg-neutral-900 border border-white/10 flex-shrink-0 group hover:border-red-600/40 transition-all duration-500">
+                            <img src={`/assets/studiopage/${img}`} alt={`Behind the Scenes ${i + 1}`} className="w-full h-[380px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
+                        </div>
+                    ))}
+                </div>
+            </section>
             {/* 7. Strategic Difference Section*/}
             <section className="max-w-7xl mx-auto px-6 mb-32 relative py-16">
                 {/* Subtle Background Glow - Creates a focal point without being an "animation" */}
@@ -448,6 +527,12 @@ const StudioPage = () => {
                     </div>
                 </div>
             </section>
+
+            
+
+         
+
+            <style>{`.no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
 
             {/* 8. Who This Is For Section */}
             <section className="max-w-7xl mx-auto px-6 mb-32 relative py-20 border-y border-white/5">

@@ -18,7 +18,7 @@ export default function AboutPage() {
     {
         name: "Pratik Jambhale",
         role: "Founder",
-        image: "/profiles/Pratik Jambhale.png",
+        image: "/profiles/Pratik Jambhale1.jpg",
         linkedin: "https://www.linkedin.com/in/pratik-jambhale-64b85270/",
         description: "A dynamic visual storyteller with 10+ years of media experience. He crafts impactful content across film, digital, and branded formats."
     },
@@ -32,7 +32,7 @@ export default function AboutPage() {
     {
         name: "Anoop Pawar",
         role: "Post-Production Supervisor",
-        image: "/profiles/Anoop Pawar.jpg",
+        image: "/profiles/Anoop Pawar1.jpg",
         linkedin: "https://www.linkedin.com/in/anooppawar/",
         description: "Managing end-to-end post production and transforming raw footage into polished and engaging visual stories with expertise in editing, color grading, sound design, and motion graphics."
     },
@@ -48,10 +48,10 @@ export default function AboutPage() {
     return (
         <main className="bg-black min-h-screen text-white pt-32">
             <SEO
-                title="About Us"
-                description="Learn about Nitty Gritty Media — a creative agency combining storytelling, strategy, and production to help brands grow."
-                keywords="about Nitty Gritty, creative agency Mumbai, media production, brand storytelling"
-                canonical="https://nittygrittylabz.com/about"
+            title="About Nitty Gritty Labz | Creative Marketing & Branding Agency"
+        description="Learn more about Nitty Gritty Labz, a creative marketing and branding agency focused on content, strategy, design, and digital growth for brands across industries."
+        keywords="Branding Agency Mumbai, Creative Marketing Agency, Digital Growth, Content Strategy, Brand Identity Design"
+        canonical="https://nittygrittylabz.com/about"
             />
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto px-6 mb-24 text-center pt-15">

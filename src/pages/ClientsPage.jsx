@@ -8,10 +8,10 @@ export default function ClientsPage() {
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
             <SEO
-                title="Clients"
-                description="Our esteemed clients across industries — brands that trust Nitty Gritty Media for video production, digital marketing, and creative solutions."
-                keywords="Nitty Gritty clients, brands we work with, client list Mumbai agency"
-                canonical="https://nittygrittylabz.com/clients"
+            title="Brands & Clients We've Worked With | Nitty Gritty Labz"
+        description="Explore the brands and clients associated with Nitty Gritty Labz across digital marketing, branding, video production, photography, and creative campaigns."
+        keywords="Brands We Work With, Client List, Creative Campaigns Mumbai, Digital Marketing Clients, Branding Agency Clients"
+        canonical="https://nittygrittylabz.com/clients"
             />
             {/* Background Glows */}
             <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>

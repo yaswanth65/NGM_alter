@@ -293,9 +293,9 @@ export default function HomePage() {
   return (
     <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
       <SEO
-        title="Home"
-        description="We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue."
-        keywords="Nitty Gritty, video production, digital marketing, brand growth, creative agency Mumbai"
+            title="Creative Digital Marketing Agency in Mumbai & Thane | Nitty Gritty Labz"
+        description="Nitty Gritty Labz is a creative digital marketing agency offering Videography, Photography, social media management, branding, content creation, performance marketing, website solutions, and studio production services for modern businesses."
+        keywords="Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai, Creative Digital Marketing, Branding Agency Mumbai"
         canonical="https://nittygrittylabz.com"
       />
       {/* HERO SECTION */}
@@ -322,7 +322,7 @@ export default function HomePage() {
         <div className="relative z-10 text-center px-[clamp(1.5rem,4vw,3rem)] max-w-7xl mx-auto pt-10">
           <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">
             Explore the true potential <br />
-            <span className="text-red-500/90">of your brand</span>
+            <span className="text-white">of your brand</span>
           </h1>
           <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-neutral-400 max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
             We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
@@ -424,25 +424,7 @@ export default function HomePage() {
         <AboutUsSection />
 
         {/* Rotating Marquee Strip */}
-        <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-transparent before:to-black before:z-10 before:pointer-events-none">
-          <div className="flex whitespace-nowrap animate-marquee">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent mx-6 flex items-center gap-6">
-                We build brands that people remember and businesses that grow
-                <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>
-              </span>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-25%); }
-          }
-          .animate-marquee {
-            animation: marquee 10s linear infinite;
-          }
-        `}</style>
+        <MarqueeStrip />
 
         <ServicesSection />
         {/* <StatsBarSection /> */}
@@ -592,7 +574,7 @@ function AboutUsSection() {
 
           <div>
             <Link to="/about" className="inline-block px-[clamp(2rem,5vw,2.5rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-full border border-white/20 text-[clamp(0.7rem,1vw,0.75rem)] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300">
-              Read More
+              Know More
             </Link>
           </div>
         </div>
@@ -678,6 +660,42 @@ function StatsBarSection() {
     </section>
   );
 }
+
+const MarqueeStrip = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let pos = 0;
+    let running = true;
+    let raf;
+
+    const frame = () => {
+      if (!running) return;
+      pos += 0.7;
+      const half = el.scrollWidth / 2;
+      if (pos >= half) pos -= half;
+      el.style.transform = `translateX(-${pos}px)`;
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+    return () => { running = false; cancelAnimationFrame(raf); };
+  }, []);
+
+  return (
+    <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-transparent before:to-black before:z-10 before:pointer-events-none">
+      <div ref={ref} className="flex whitespace-nowrap" style={{ willChange: 'transform' }}>
+        {Array.from({ length: 2 }).map((_, i) => (
+          <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent mx-6 flex items-center gap-6 shrink-0">
+            We build brands that people remember and businesses that grow
+            <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // ----------------------------------------------------------------------
 // OUR SERVICES SECTION

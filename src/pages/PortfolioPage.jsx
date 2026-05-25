@@ -12,10 +12,14 @@ const subCategories = [
     "Brand Documentaries",
     "Corporate Films",
     "Podcast",
-    "Advertisement",
-    "Promos",
-    "Business Explainer",
     "Testimonial",
+    "Advertisement",
+    "Product Videos",
+    "Product Information",
+    "Informative",
+    "Food Recipes",
+    "Promos",
+    "Talking Head",
 ];
 
 export default function PortfolioPage() {
@@ -50,10 +54,10 @@ export default function PortfolioPage() {
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
             <SEO
-                title="Portfolio"
-                description="View our portfolio of video production, photography, web development, and digital marketing projects by Nitty Gritty Media."
-                keywords="Nitty Gritty portfolio, video production portfolio, photography portfolio, digital marketing case studies"
-                canonical="https://nittygrittylabz.com/portfolio"
+            title="Our Work & Portfolio | Nitty Gritty Labz"
+        description="Explore the creative portfolio of Nitty Gritty Labz featuring branding projects, social media campaigns, studio shoots, digital marketing creatives, and content production."
+        keywords="Creative Portfolio, Branding Projects, Social Media Campaigns, Digital Marketing Creatives, Content Production"
+        canonical="https://nittygrittylabz.com/portfolio"
             />
             <div className="max-w-7xl mx-auto px-6 pt-15">
                 {/* Header */}
@@ -126,19 +130,16 @@ export default function PortfolioPage() {
                                     </div>
 
                                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                        <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium mb-3 border border-white/10">
-                                            {project.subCategory}
-                                        </div>
                                         <h3 className="text-lg font-bold font-outfit leading-tight group-hover:text-red-400 transition-colors">
                                             {project.title}
                                         </h3>
                                     </div>
                                 </div>
 
-                                {/* Top Left Badge (Optional based on design) */}
+                                {/* Top Left Badge */}
                                 <div className="absolute top-4 left-4">
                                     <div className="px-3 py-1 bg-neutral-900/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider font-bold border border-white/10">
-                                        Brand Documentary
+                                        {project.subCategory}
                                     </div>
                                 </div>
                             </div>

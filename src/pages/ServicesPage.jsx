@@ -49,7 +49,7 @@ const ServiceSection = ({ title, slug, features, description, imageSrc, reverse 
                 </p>
 
                 <Link to={`/services/${slug}`} className="inline-block group relative px-8 py-3 rounded-full border border-white/20 overflow-hidden transition-all duration-300 hover:border-red-500">
-                    <span className="relative z-10 text-white font-bold tracking-widest text-xs uppercase">Read More</span>
+                    <span className="relative z-10 text-white font-bold tracking-widest text-xs uppercase">Know More</span>
                     <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </Link>
             </div>
@@ -104,10 +104,10 @@ export default function ServicesPage() {
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
             <SEO
-                title="Services"
-                description="Nitty Gritty Media offers photography, web & app development, digital marketing, video production, and graphic design services."
-                keywords="digital marketing agency, video production company, web development Mumbai, photography services, graphic design"
-                canonical="https://nittygrittylabz.com/services"
+            title="Digital Marketing, Production & Development Services | Nitty Gritty Labz"
+        description="Explore digital marketing, video production, photography, graphic design, branding, and web & app development services tailored for modern brands and businesses."
+        keywords="Digital Marketing Agency Mumbai, Video Production Agency, Web Development Mumbai, Graphic Design Agency, Branding Agency"
+        canonical="https://nittygrittylabz.com/services"
             />
             {/* Background Glows */}
             <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>

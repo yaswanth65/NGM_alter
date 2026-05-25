@@ -19,9 +19,9 @@ const ServiceDetails = () => {
     return (
         <main className="bg-black min-h-screen text-white pt-32">
             <SEO
-                title={service.title}
-                description={service.intro.tagline}
-                keywords={`${service.title.toLowerCase()}, Nitty Gritty, ${service.title.toLowerCase()} services Mumbai`}
+                title={service.seo?.title || service.title}
+                description={service.seo?.description || service.intro.tagline}
+                keywords={service.seo?.keywords || `${service.title.toLowerCase()}, Nitty Gritty, ${service.title.toLowerCase()} services Mumbai`}
                 canonical={`https://nittygrittylabz.com/services/${id}`}
             />
             
