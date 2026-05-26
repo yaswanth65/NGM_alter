@@ -444,7 +444,7 @@ export default function HomePage() {
 // ----------------------------------------------------------------------
 const trustedPeople = [
   "/homeLogos/Bellezza Logo.png",
-  "/homeLogos/Dr. batra Logo.png",
+  "/homeLogos/image.png",
   "/homeLogos/Intellarc Communications Logo.png",
   "/homeLogos/Muthoot Exim Logo.png",
   "/homeLogos/Unboxing Real Estate Logo.png",
@@ -666,34 +666,33 @@ function StatsBarSection() {
 }
 
 const MarqueeStrip = () => {
-  const ref = useRef(null);
+  const trackRef = useRef(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const el = trackRef.current;
+    if (!el || !el.children.length) return;
     let pos = 0;
-    let running = true;
     let raf;
-
     const frame = () => {
-      if (!running) return;
-      pos += 0.7;
-      const half = el.scrollWidth / 2;
-      if (pos >= half) pos -= half;
-      el.style.transform = `translateX(-${pos}px)`;
+      pos += 2;
+      const first = el.children[0];
+      if (first && first.getBoundingClientRect().right < 0) {
+        el.appendChild(first);
+        pos -= first.offsetWidth;
+      }
+      el.style.transform = `translateX(${-pos}px)`;
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
-    return () => { running = false; cancelAnimationFrame(raf); };
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
-    <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-transparent before:to-black before:z-10 before:pointer-events-none">
-      <div ref={ref} className="flex whitespace-nowrap" style={{ willChange: 'transform' }}>
-        {Array.from({ length: 2 }).map((_, i) => (
-          <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent mx-6 flex items-center gap-6 shrink-0">
-            We build brands that people remember and businesses that grow
-            <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>
+    <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden">
+      <div ref={trackRef} className="flex" style={{ whiteSpace: 'nowrap' }}>
+        {Array.from({ length: 10 }).map((_, i) => (
+          <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent" style={{ flex: 'none', margin: 0, padding: 0 }}>
+            We build brands that people remember and businesses that grow <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>{'\u00A0\u00A0\u00A0\u00A0\u00A0'}
           </span>
         ))}
       </div>
