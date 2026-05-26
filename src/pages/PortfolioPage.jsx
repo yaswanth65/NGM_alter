@@ -21,6 +21,7 @@ const subCategories = [
     "Promos",
     "Talking Head",
 ];
+const photoSubCategories = ["All", "Jewellery", "Food", "Beauty Products", "Stationery", "Interior"];
 
 export default function PortfolioPage() {
     const [activeMainCategory, setActiveMainCategory] = useState("Videos");
@@ -36,6 +37,12 @@ export default function PortfolioPage() {
         });
     }, [activeMainCategory, activeSubCategory]);
 
+    const filteredPhotography = useMemo(() => {
+        return activeSubCategory === "All"
+            ? photography
+            : photography.filter((item) => item.subCategory === activeSubCategory);
+    }, [activeSubCategory]);
+
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
     const openLightbox = (index) => setSelectedImageIndex(index);
@@ -43,12 +50,12 @@ export default function PortfolioPage() {
 
     const showNext = (e) => {
         e.stopPropagation();
-        setSelectedImageIndex((prev) => (prev + 1) % photography.length);
+        setSelectedImageIndex((prev) => (prev + 1) % filteredPhotography.length);
     };
 
     const showPrev = (e) => {
         e.stopPropagation();
-        setSelectedImageIndex((prev) => (prev - 1 + photography.length) % photography.length);
+        setSelectedImageIndex((prev) => (prev - 1 + filteredPhotography.length) % filteredPhotography.length);
     };
 
     return (
@@ -79,7 +86,7 @@ export default function PortfolioPage() {
                     {mainCategories.map((category) => (
                         <button
                             key={category}
-                            onClick={() => setActiveMainCategory(category)}
+                            onClick={() => { setActiveMainCategory(category); setActiveSubCategory("All"); setSelectedImageIndex(null); }}
                             className={`px-8 py-2 rounded-full border transition-all duration-300 ${activeMainCategory === category
                                 ? "border-red-500 bg-red-500/10 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)]"
                                 : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-white"
@@ -92,10 +99,10 @@ export default function PortfolioPage() {
 
                 {/* Sub Categories */}
                 <div className="flex justify-center flex-wrap gap-3 mb-16">
-                    {subCategories.map((category) => (
+                    {(activeMainCategory === "Photography" ? photoSubCategories : subCategories).map((category) => (
                         <button
                             key={category}
-                            onClick={() => setActiveSubCategory(category)}
+                            onClick={() => { setActiveSubCategory(category); setSelectedImageIndex(null); }}
                             className={`px-6 py-2 rounded-full border text-sm transition-all duration-300 ${activeSubCategory === category
                                 ? "border-white bg-white text-black"
                                 : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-white"
@@ -149,7 +156,7 @@ export default function PortfolioPage() {
 
                 {activeMainCategory === "Photography" && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
-                        {photography.map((item, index) => (
+                        {filteredPhotography.map((item, index) => (
                             <div
                                 key={item.id}
                                 className="relative overflow-hidden rounded-xl cursor-pointer group aspect-square bg-neutral-900"
@@ -207,14 +214,14 @@ export default function PortfolioPage() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
-                                src={photography[selectedImageIndex].image}
+                                src={filteredPhotography[selectedImageIndex].image}
                                 className="max-w-full max-h-[80vh] object-contain shadow-2xl rounded-sm animate-in fade-in zoom-in duration-500 ease-out"
                                 alt="Enlarged gallery view"
                             />
 
                             {/* Index Counter */}
                             <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/40 tracking-widest text-sm uppercase mt-[-10]">
-                                {selectedImageIndex + 1} <span className="mx-2">/</span> {photography.length}
+                                {selectedImageIndex + 1} <span className="mx-2">/</span> {filteredPhotography.length}
                             </div>
                         </div>
 

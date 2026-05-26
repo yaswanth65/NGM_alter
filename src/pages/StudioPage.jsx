@@ -702,6 +702,14 @@ const StudioPage = () => {
                     </h2>
                 </div>
             </section>
+
+            <section className="border-t border-white/5 py-8">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-400 text-sm">
+                    <span>Centura Square IT Park, Thane West, Mumbai</span>
+                    <a href="tel:+919997355769" className="hover:text-white transition-colors">+91 9997355769</a>
+                    <a href="mailto:studio@nittygrittylabz.com" className="hover:text-white transition-colors">studio@nittygrittylabz.com</a>
+                </div>
+            </section>
         </main>
     );
 }

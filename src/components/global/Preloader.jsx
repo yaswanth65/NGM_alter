@@ -4,7 +4,7 @@ import { useLayoutEffect, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const words = ["Creative", "Photography", "Shoot", "Media", "Video"];
+const words = ["Create", "Capture", "Grow"];
 
 export default function Preloader() {
     const containerRef = useRef(null);
@@ -42,9 +42,9 @@ export default function Preloader() {
 
         const tl = gsap.timeline();
 
-        // Math for perfect sync: ~5 seconds total / 5 words = 0.9s per word cycle
+        // ~3 seconds total / 3 words = 1s per word cycle
         const transitionDuration = 0.1;
-        const holdDuration = 0.9 - (transitionDuration * 2);
+        const holdDuration = 1 - (transitionDuration * 2);
 
         // Initial word appearance
         tl.fromTo(

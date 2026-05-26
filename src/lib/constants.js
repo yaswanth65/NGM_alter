@@ -11,6 +11,7 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = [
     { name: 'About Us', href: '/about' },
+    { name: 'Studio', href: '/studio' },
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Clients', href: '/clients' },

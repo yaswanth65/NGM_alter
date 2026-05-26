@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+    const { pathname } = useLocation();
+    const isStudio = pathname === "/studio";
     return (
         <footer className="relative z-20 bg-black text-white py-[clamp(3rem,8vw,5rem)] border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-[clamp(1.5rem,4vw,3rem)]">
@@ -91,7 +93,7 @@ export default function Footer() {
                         <div>
                             <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Phone</h3>
                             <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] break-words">
-                                +91 8976434267  / +91 9997355769  
+                                +91 8976434267{isStudio && "  /  +91 9997355769"}
                             </p>
                         </div>
                         <div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useEffect, useRef, useState } from 'react';
+import Preloader from '@/components/global/Preloader';
 import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Image from '../components/common/Image'; // Ensure this path is correct in your setup
@@ -291,7 +292,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
+    <>
+      <Preloader />
+      <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
       <SEO
             title="Creative Digital Marketing Agency in Mumbai & Thane | Nitty Gritty Labz"
         description="Nitty Gritty Labz is a creative digital marketing agency offering Videography, Photography, social media management, branding, content creation, performance marketing, website solutions, and studio production services for modern businesses."
@@ -324,7 +327,7 @@ export default function HomePage() {
             Explore the true potential <br />
             <span className="text-white">of your brand</span>
           </h1>
-          <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-neutral-400 max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
+          <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-white max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
             We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
           </p>
           <Link to="/contact" className="inline-block px-[clamp(2rem,5vw,2.5rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300 group">
@@ -432,6 +435,7 @@ export default function HomePage() {
 
       </div>
     </div>
+    </>
   );
 }
 
