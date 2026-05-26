@@ -77,15 +77,12 @@ const StudioPage = () => {
                 </div>
             </div>
 
-            {/* 2. Innovative Intro Section */}
-            <section className="max-w-7xl mx-auto px-6 mb-32 relative">
-                {/* Premium Background Element: Subtle Red Glow */}
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-600/10 blur-[120px] rounded-full -z-10" />
+            {/* 2. Split Layout: Content + Phone Mockup */}
+            <section className="relative max-w-7xl mx-auto px-6 mb-20 overflow-visible">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
-                    {/* Left Side: The "Intent" Statement */}
-                    <div className="lg:col-span-7 space-y-8">
+                    {/* Left Side: Content */}
+                    <div className="lg:col-span-6 space-y-5 z-10">
                         <div className="flex items-center gap-2 text-red-600 uppercase tracking-widest text-sm font-bold">
                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
@@ -93,34 +90,39 @@ const StudioPage = () => {
                             The Purpose-Built Space
                         </div>
 
-                        <h2 className="text-4xl md:text-6xl font-bold font-outfit uppercase leading-[1.1] text-white">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-outfit uppercase leading-[1.05] text-white">
                             Where Content Gets <br />
                             <span className="text-red-600 italic font-medium">Created with Intent.</span>
                         </h2>
 
                         <div className="h-1 w-20 bg-red-600 rounded-full"></div>
 
-                        <p className="text-neutral-400 text-xl md:text-2xl leading-relaxed font-light max-w-2xl">
-                            We’ve helped brands grow through strategy, content, and execution.
+                        <p className="text-neutral-400 text-lg md:text-xl leading-relaxed font-light max-w-xl">
+                            We've helped brands grow through strategy, content, and execution.
                             Now, we bring the entire process <span className="text-white font-medium italic">under one roof.</span>
                         </p>
-                    </div>
 
-                    {/* Right Side: The "Introducing" Card (Premium Element) */}
-                    <div className="lg:col-span-5 lg:mt-20">
-                        <div className="relative p-8 md:p-10 rounded-[32px] bg-neutral-900/50 border border-white/10 backdrop-blur-xl group hover:border-red-600/40 transition-all duration-700">
-                            {/* Decorative Corner */}
+                        <Link
+                            to="/contact"
+                            className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-red-600/40 bg-red-600/10 text-sm uppercase tracking-widest font-bold text-white hover:bg-red-600 hover:border-red-600 transition-all duration-300 group/btn"
+                        >
+                            Book Your Studio
+                            <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </Link>
+
+                        {/* Our In-House Studio Card */}
+                        <div className="mt-6 p-6 md:p-8 rounded-3xl bg-neutral-900/50 border border-white/10 backdrop-blur-xl max-w-md group hover:border-red-600/30 transition-all duration-500">
                             <div className="absolute top-0 right-0 p-4">
-                                <div className="w-8 h-8 border-t-2 border-r-2 border-red-600/50 group-hover:border-red-600 transition-colors" />
+                                <div className="w-6 h-6 border-t-2 border-r-2 border-red-600/40 group-hover:border-red-600 transition-colors" />
                             </div>
-
-                            <p className="text-red-600 font-bold uppercase tracking-widest text-xs mb-6">Introducing</p>
-
-                            <h3 className="text-2xl md:text-3xl font-bold text-white font-outfit mb-6 leading-snug">
+                            <p className="text-red-600 font-bold uppercase tracking-widest text-xs mb-4">Introducing</p>
+                            <h3 className="text-xl md:text-2xl font-bold text-white font-outfit mb-4 leading-snug">
                                 Our In-House Studio
                             </h3>
-
-                            <p className="text-neutral-400 text-lg leading-relaxed font-light">
+                            <p className="text-neutral-400 text-base leading-relaxed font-light">
                                 A space designed for brands, creators, and businesses who want to create
                                 <span className="text-white font-normal block mt-2">
                                     • Consistently <br />
@@ -128,6 +130,54 @@ const StudioPage = () => {
                                     • With Purpose
                                 </span>
                             </p>
+                        </div>
+                    </div>
+
+                    {/* Right Side: Phone Mockup */}
+                    <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+                        {/* Glow behind phone */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[700px] bg-red-600/15 blur-[120px] rounded-full -z-10" />
+
+                        {/* Phone Frame */}
+                        <div className="relative w-[340px] md:w-[400px] lg:w-[460px] -mr-8 lg:-mr-16">
+                            {/* Phone Body */}
+                            <div className="relative bg-black rounded-[40px] border-[3px] border-neutral-700 shadow-2xl overflow-hidden aspect-[9/15]">
+                                {/* Notch */}
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-black rounded-b-2xl z-20 flex items-center justify-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
+                                    <div className="w-10 h-1.5 rounded-full bg-neutral-800" />
+                                </div>
+
+                                {/* Screen Content - Auto-playing Video */}
+                                <div className="absolute inset-0 overflow-hidden">
+                                    <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        className="w-full h-full object-cover"
+                                    >
+                                        <source src="/NGM-Studio-Reel.webm" type="video/webm" />
+                                    </video>
+                                    {/* Screen overlay gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+                                </div>
+
+                                {/* Status bar */}
+                                <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
+                                <div className="absolute top-3 left-6 right-6 flex justify-between items-center z-10 pointer-events-none">
+                                    <span className="text-white text-[10px] font-semibold">9:41</span>
+                                    <div className="flex items-center gap-1">
+                                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Side buttons */}
+                            <div className="absolute top-[80px] -right-[3px] w-[3px] h-8 bg-neutral-600 rounded-r-sm" />
+                            <div className="absolute top-[105px] -right-[3px] w-[3px] h-8 bg-neutral-600 rounded-r-sm" />
+                            <div className="absolute top-[100px] -left-[3px] w-[3px] h-12 bg-neutral-600 rounded-l-sm" />
                         </div>
                     </div>
                 </div>
