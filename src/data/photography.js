@@ -33,4 +33,17 @@ export const photography = [
 
   // ── Interior ──
   { id: 25, image: "/photography/SHAR7838.jpg", subCategory: "Interior" },
+  { id: 26, image: "/photography/interior/1.png", subCategory: "Interior" },
+  { id: 27, image: "/photography/interior/2.png", subCategory: "Interior" },
+  { id: 28, image: "/photography/interior/3.png", subCategory: "Interior" },
+  { id: 29, image: "/photography/interior/4.png", subCategory: "Interior" },
+  { id: 30, image: "/photography/interior/5.png", subCategory: "Interior" },
+  { id: 31, image: "/photography/interior/6.png", subCategory: "Interior" },
+  { id: 32, image: "/photography/interior/7.png", subCategory: "Interior" },
+  { id: 33, image: "/photography/interior/8.png", subCategory: "Interior" },
+  { id: 34, image: "/photography/interior/9.png", subCategory: "Interior" },
+  { id: 35, image: "/photography/interior/10.png", subCategory: "Interior" },
+  { id: 36, image: "/photography/interior/11.png", subCategory: "Interior" },
+  { id: 37, image: "/photography/interior/12.png", subCategory: "Interior" },
+  { id: 38, image: "/photography/interior/13.png", subCategory: "Interior" },
 ];

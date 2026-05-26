@@ -121,11 +121,12 @@ export default function PortfolioPage() {
                                 {/* Image Placeholder */}
                                 {project.videoUrl && (
                                     <div className="absolute inset-0 z-0">
-                                        <img
-                                            src={`https://img.youtube.com/vi/${project.videoUrl.split('/').pop()}/hqdefault.jpg`}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                                        />
+                            <img
+                                src={`https://img.youtube.com/vi/${project.videoUrl.split('/').pop()}/hqdefault.jpg`}
+                                alt={project.title}
+                                loading="lazy"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                            />
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
                                     </div>
                                 )}
@@ -165,6 +166,7 @@ export default function PortfolioPage() {
                                 <img
                                     src={item.image}
                                     alt={`Gallery ${item.id}`}
+                                    loading="lazy"
                                     className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 ease-out group-hover:scale-105"
                                 />
                                 {/* Minimalist Premium Overlay */}
