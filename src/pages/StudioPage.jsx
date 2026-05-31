@@ -78,8 +78,8 @@ const StudioPage = () => {
             </div>
 
             {/* 2. Split Layout: Content + Phone Mockup */}
-            <section className="relative max-w-7xl mx-auto px-6 mb-20 overflow-visible">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <section className="relative max-w-7xl mx-auto px-6 mb-20 overflow-hidden lg:overflow-visible">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-center overflow-hidden lg:overflow-visible">
 
                     {/* Left Side: Content */}
                     <div className="lg:col-span-6 space-y-5 z-10">
@@ -134,18 +134,18 @@ const StudioPage = () => {
                     </div>
 
                     {/* Right Side: Phone Mockup */}
-                    <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+                    <div className="lg:col-span-6 relative flex justify-center lg:justify-end pr-4 sm:pr-6 md:pr-8">
                         {/* Glow behind phone */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[700px] bg-red-600/15 blur-[120px] rounded-full -z-10" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[400px] lg:w-[500px] h-[420px] md:h-[560px] lg:h-[700px] bg-red-600/15 blur-[100px] md:blur-[120px] rounded-full -z-10" />
 
                         {/* Phone Frame */}
-                        <div className="relative w-[340px] md:w-[400px] lg:w-[460px] -mr-8 lg:-mr-16">
+                        <div className="relative w-[220px] sm:w-[260px] md:w-[300px] lg:w-[460px] lg:-mr-16">
                             {/* Phone Body */}
-                            <div className="relative bg-black rounded-[40px] border-[3px] border-neutral-700 shadow-2xl overflow-hidden aspect-[9/15]">
+                            <div className="relative bg-black rounded-[30px] md:rounded-[36px] lg:rounded-[40px] border-[2px] md:border-[3px] border-neutral-700 shadow-2xl overflow-hidden aspect-[9/15]">
                                 {/* Notch */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-black rounded-b-2xl z-20 flex items-center justify-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-neutral-800" />
-                                    <div className="w-10 h-1.5 rounded-full bg-neutral-800" />
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70px] md:w-[90px] lg:w-[120px] h-[18px] md:h-[24px] lg:h-[28px] bg-black rounded-b-2xl z-20 flex items-center justify-center gap-1.5 md:gap-2">
+                                    <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-neutral-800" />
+                                    <div className="w-6 md:w-8 lg:w-10 h-1 md:h-1.5 rounded-full bg-neutral-800" />
                                 </div>
 
                                 {/* Screen Content - Auto-playing Video */}
@@ -164,20 +164,20 @@ const StudioPage = () => {
                                 </div>
 
                                 {/* Status bar */}
-                                <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
-                                <div className="absolute top-3 left-6 right-6 flex justify-between items-center z-10 pointer-events-none">
-                                    <span className="text-white text-[10px] font-semibold">9:41</span>
-                                    <div className="flex items-center gap-1">
-                                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+                                <div className="absolute top-0 left-0 right-0 h-8 md:h-10 lg:h-12 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
+                                <div className="absolute top-2 md:top-2.5 lg:top-3 left-4 md:left-5 lg:left-6 right-4 md:right-5 lg:right-6 flex justify-between items-center z-10 pointer-events-none">
+                                    <span className="text-white text-[8px] md:text-[9px] lg:text-[10px] font-semibold">9:41</span>
+                                    <div className="flex items-center gap-0.5 md:gap-1">
+                                        <svg className="w-2.5 h-2.5 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                                        <svg className="w-2.5 h-2.5 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Side buttons */}
-                            <div className="absolute top-[80px] -right-[3px] w-[3px] h-8 bg-neutral-600 rounded-r-sm" />
-                            <div className="absolute top-[105px] -right-[3px] w-[3px] h-8 bg-neutral-600 rounded-r-sm" />
-                            <div className="absolute top-[100px] -left-[3px] w-[3px] h-12 bg-neutral-600 rounded-l-sm" />
+                            <div className="absolute top-[60px] md:top-[70px] lg:top-[80px] -right-[2px] md:-right-[3px] w-[2px] md:w-[3px] h-5 md:h-6 lg:h-8 bg-neutral-600 rounded-r-sm" />
+                            <div className="absolute top-[80px] md:top-[92px] lg:top-[105px] -right-[2px] md:-right-[3px] w-[2px] md:w-[3px] h-5 md:h-6 lg:h-8 bg-neutral-600 rounded-r-sm" />
+                            <div className="absolute top-[75px] md:top-[88px] lg:top-[100px] -left-[2px] md:-left-[3px] w-[2px] md:w-[3px] h-8 md:h-10 lg:h-12 bg-neutral-600 rounded-l-sm" />
                         </div>
                     </div>
                 </div>
@@ -277,7 +277,7 @@ const StudioPage = () => {
                     </div>
                 </div>
                 <div ref={carousel1Ref} onMouseDown={handleDragStart(carousel1Ref)} className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory no-scrollbar cursor-grab select-none">
-                    {["2.png","3.png","4.png","8.png","10.png","11.png","14.png","15.png"].map((img, i) => (
+                    {["2.png","3.png","4.png","8.png","10.png","11.png","14.png","15.png","23.jpg","24.jpg","25.jpg"].map((img, i) => (
                         <div key={i} className="min-w-[280px] md:min-w-[320px] snap-start rounded-[28px] overflow-hidden bg-neutral-900 border border-white/10 flex-shrink-0 group hover:border-red-600/40 transition-all duration-500">
                             <img src={`/assets/studiopage/${img}`} alt={`Studio ${i + 1}`} className="w-full h-[380px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
                         </div>
@@ -488,7 +488,7 @@ const StudioPage = () => {
                     </div>
                 </div>
                 <div ref={carousel2Ref} onMouseDown={handleDragStart(carousel2Ref)} className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory no-scrollbar cursor-grab select-none">
-                    {["16.png","17.png","18.png","19.png","20.png","21.png","22.png"].map((img, i) => (
+                    {["16.png","17.png","18.png","19.png","20.png","21.png","22.png","26.jpg","27.jpg","28.jpg"].map((img, i) => (
                         <div key={i} className="min-w-[280px] md:min-w-[320px] snap-start rounded-[28px] overflow-hidden bg-neutral-900 border border-white/10 flex-shrink-0 group hover:border-red-600/40 transition-all duration-500">
                             <img src={`/assets/studiopage/${img}`} alt={`Behind the Scenes ${i + 1}`} className="w-full h-[380px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
                         </div>

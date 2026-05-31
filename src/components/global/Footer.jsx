@@ -115,9 +115,10 @@ export default function Footer() {
                     </div>
                     {/* flex-wrap allows links to jump to the next line on mobile instead of forcing horizontal scrolling */}
                     <div className="flex flex-wrap justify-center md:justify-end gap-x-[clamp(1rem,3vw,1.5rem)] gap-y-[0.5rem] uppercase tracking-wider font-medium text-white">
-                        <a href="https://www.youtube.com/@nittygrittymedia" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Youtube</a>
+                        <a href="https://youtube.com/@nittygrittylabz" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Youtube</a>
                         <a href="https://www.linkedin.com/company/nittygrittymedia/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">LinkedIn</a>
-                        <a href="https://www.instagram.com/nitty_gritty_media/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
+                        <a href="https://www.instagram.com/nitty_gritty_labz/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
+                        <a href="https://www.instagram.com/nitty_gritty_studio/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram Studio</a>
                         <a href="https://www.facebook.com/NGMAdvertising2020" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Facebook</a>
                     </div>
                 </div>

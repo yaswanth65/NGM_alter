@@ -60,19 +60,19 @@ const ServiceSection = ({ title, slug, features, description, imageSrc, reverse 
 export default function ServicesPage() {
     const services = [
         {
+            title: "Video Production",
+            slug: "video-production",
+            features: ["DVCs & TVCs", "Corporate Films", "Drone Cinematography", "Post-Production"],
+            description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
+            imageSrc: "/services/Video Production 1.jpg",
+            reverse: false
+        },
+        {
             title: "Photography",
             slug: "photography",
             features: ["Portrait Photography", "Product Photography", "Event Coverage", "Editorial"],
             description: "Professional photography for brands, events, and products. High-quality visuals that resonate with your audience.",
             imageSrc: "/services/Photography 2.jpg",
-            reverse: false
-        },
-        {
-            title: "Web & App Development",
-            slug: "web-app-development",
-            features: ["Custom Web Design", "Mobile App Development", "E-commerce Solutions", "Performance Optimization"],
-            description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
-            imageSrc: "/services/Web and App Development.jpg",
             reverse: true
         },
         {
@@ -84,11 +84,11 @@ export default function ServicesPage() {
             reverse: false
         },
         {
-            title: "Video Production",
-            slug: "video-production",
-            features: ["DVCs & TVCs", "Corporate Films", "Drone Cinematography", "Post-Production"],
-            description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
-            imageSrc: "/services/Video Production 1.jpg",
+            title: "Web & App Development",
+            slug: "web-app-development",
+            features: ["Custom Web Design", "Mobile App Development", "E-commerce Solutions", "Performance Optimization"],
+            description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
+            imageSrc: "/services/Web and App Development.jpg",
             reverse: true
         },
         {

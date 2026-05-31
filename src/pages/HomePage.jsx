@@ -674,7 +674,7 @@ const MarqueeStrip = () => {
     let pos = 0;
     let raf;
     const frame = () => {
-      pos += 2;
+      pos += 0.8;
       const first = el.children[0];
       if (first && first.getBoundingClientRect().right < 0) {
         el.appendChild(first);
@@ -706,31 +706,29 @@ const MarqueeStrip = () => {
 const services = [
   {
     id: "01",
+    title: "VIDEO PRODUCTION",
+    slug: "video-production",
+    tagline: "Dynamic visual storytelling designed to engage.",
+    description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
+    buttonText: "Learn More",
+    icon: (
+      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+      </svg>
+    )
+  },
+  {
+    id: "02",
     title: "PHOTOGRAPHY",
     slug: "photography",
     tagline: "Capturing moments that tell a story.",
     description: "Professional photography for brands, events, and products. High-quality visuals that resonate with your audience.",
     buttonText: "Learn More",
     icon: (
-      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
         <circle cx="12" cy="13" r="3" />
-      </svg>
-    )
-  },
-  {
-    id: "02",
-    title: "WEB & APP DEVELOPMENT",
-    slug: "web-app-development",
-    tagline: "Building digital ecosystems for growth.",
-    description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
-    buttonText: "Learn More",
-    icon: (
-      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
-        <polyline points="16 18 22 12 16 6" className="opacity-0 group-hover:opacity-100 transition-opacity" />
-        <polyline points="8 6 2 12 8 18" className="opacity-0 group-hover:opacity-100 transition-opacity" />
       </svg>
     )
   },
@@ -750,15 +748,17 @@ const services = [
   },
   {
     id: "04",
-    title: "VIDEO PRODUCTION",
-    slug: "video-production",
-    tagline: "Dynamic visual storytelling designed to engage.",
-    description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
+    title: "WEB & APP DEVELOPMENT",
+    slug: "web-app-development",
+    tagline: "Building digital ecosystems for growth.",
+    description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
     buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
+        <polyline points="16 18 22 12 16 6" className="opacity-0 group-hover:opacity-100 transition-opacity" />
+        <polyline points="8 6 2 12 8 18" className="opacity-0 group-hover:opacity-100 transition-opacity" />
       </svg>
     )
   },

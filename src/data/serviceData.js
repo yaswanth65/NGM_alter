@@ -113,6 +113,67 @@ export const servicesData = [
     cta: "If your brand needs to be seen the right way, we know exactly how to frame it." // [cite: 57]
   },
   {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    seo: {
+      title: "Digital Marketing Services in Mumbai & Thane | Nitty Gritty Labz",
+      description: "Boost your brand with digital marketing services including SEO, SEM, social media management, content strategy, and performance marketing by Nitty Gritty Labz.",
+      keywords: "Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai"
+    }, // [cite: 58]
+    intro: {
+      tagline: "Visibility is easy. Growth is intentional.", // [cite: 59]
+      paragraphs: [
+        "Being present online isn't enough anymore. What matters is how you're seen, who you reach, and what they do next.", // [cite: 60]
+        "At Nitty Gritty Media, we don't just \"manage\" digital platforms, we build systems that attract, engage, and convert." // [cite: 61]
+      ]
+    },
+    whatWeCreate: {
+      sectionTitle: "What We Do", // [cite: 62]
+      subtitle: "We focus on performance-driven digital strategies that create real business impact.", // [cite: 63]
+      items: [
+        "Social Media Strategy & Management", // [cite: 64]
+        "Performance Marketing (Meta & Google Ads)", // [cite: 65]
+        "Lead Generation Campaigns", // [cite: 66]
+        "Content Strategy & Planning", // [cite: 67]
+        "Funnel & Campaign Optimization", // [cite: 68]
+        "Personal Branding Growth" // [cite: 69]
+      ],
+      conclusion: "Every effort is aligned with one goal, turning attention into action." // [cite: 70]
+    },
+    approach: {
+      sectionTitle: "Our Approach", // [cite: 71]
+      tagline: "We don't chase trends. We build direction.", // [cite: 72]
+      blocks: [
+        {
+          heading: "Before execution, we define:", // [cite: 73]
+          items: [
+            "Your audience and their behaviour", // [cite: 74]
+            "Your brand positioning", // [cite: 75]
+            "Your business objective" // [cite: 76]
+          ]
+        },
+        {
+          heading: "Then we create and optimize continuously:", // [cite: 77]
+          items: [
+            "Strategy & Planning", // [cite: 78]
+            "Execution & Monitoring", // [cite: 79]
+            "Testing & Optimization" // [cite: 80]
+          ]
+        }
+      ],
+      conclusion: "Because growth doesn't come from random posting, it comes from consistent, strategic action." // [cite: 81]
+    },
+    whyUs: {
+      sectionTitle: "Why Nitty Gritty", // [cite: 82]
+      paragraphs: [
+        "We combine creativity with performance thinking.", // [cite: 83]
+        "Which means your brand doesn't just look active, it actually grows.", // [cite: 84]
+        "No vanity metrics. No guesswork. Just focused strategies that deliver measurable results." // [cite: 85]
+      ]
+    },
+    cta: "If your digital presence isn't driving business, it's time to fix the strategy." // [cite: 87]
+  },
+  {
     id: "web-app-development",
     title: "Web & App Development",
     seo: {
@@ -174,67 +235,6 @@ export const servicesData = [
       ]
     },
     cta: "If your business deserves a digital presence that actually works, let's build it."
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    seo: {
-      title: "Digital Marketing Services in Mumbai & Thane | Nitty Gritty Labz",
-      description: "Boost your brand with digital marketing services including SEO, SEM, social media management, content strategy, and performance marketing by Nitty Gritty Labz.",
-      keywords: "Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai"
-    }, // [cite: 58]
-    intro: {
-      tagline: "Visibility is easy. Growth is intentional.", // [cite: 59]
-      paragraphs: [
-        "Being present online isn’t enough anymore. What matters is how you’re seen, who you reach, and what they do next.", // [cite: 60]
-        "At Nitty Gritty Media, we don’t just “manage” digital platforms, we build systems that attract, engage, and convert." // [cite: 61]
-      ]
-    },
-    whatWeCreate: {
-      sectionTitle: "What We Do", // [cite: 62]
-      subtitle: "We focus on performance-driven digital strategies that create real business impact.", // [cite: 63]
-      items: [
-        "Social Media Strategy & Management", // [cite: 64]
-        "Performance Marketing (Meta & Google Ads)", // [cite: 65]
-        "Lead Generation Campaigns", // [cite: 66]
-        "Content Strategy & Planning", // [cite: 67]
-        "Funnel & Campaign Optimization", // [cite: 68]
-        "Personal Branding Growth" // [cite: 69]
-      ],
-      conclusion: "Every effort is aligned with one goal, turning attention into action." // [cite: 70]
-    },
-    approach: {
-      sectionTitle: "Our Approach", // [cite: 71]
-      tagline: "We don’t chase trends. We build direction.", // [cite: 72]
-      blocks: [
-        {
-          heading: "Before execution, we define:", // [cite: 73]
-          items: [
-            "Your audience and their behaviour", // [cite: 74]
-            "Your brand positioning", // [cite: 75]
-            "Your business objective" // [cite: 76]
-          ]
-        },
-        {
-          heading: "Then we create and optimize continuously:", // [cite: 77]
-          items: [
-            "Strategy & Planning", // [cite: 78]
-            "Execution & Monitoring", // [cite: 79]
-            "Testing & Optimization" // [cite: 80]
-          ]
-        }
-      ],
-      conclusion: "Because growth doesn’t come from random posting, it comes from consistent, strategic action." // [cite: 81]
-    },
-    whyUs: {
-      sectionTitle: "Why Nitty Gritty", // [cite: 82]
-      paragraphs: [
-        "We combine creativity with performance thinking.", // [cite: 83]
-        "Which means your brand doesn’t just look active, it actually grows.", // [cite: 84]
-        "No vanity metrics. No guesswork. Just focused strategies that deliver measurable results." // [cite: 85]
-      ]
-    },
-    cta: "If your digital presence isn’t driving business, it’s time to fix the strategy." // [cite: 87]
   },
   {
     id: "graphic-design",
