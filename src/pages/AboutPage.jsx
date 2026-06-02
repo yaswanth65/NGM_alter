@@ -23,7 +23,7 @@ export default function AboutPage() {
         description: "A dynamic visual storyteller with 10+ years of media experience. He crafts impactful content across film, digital, and branded formats."
     },
     {
-        name: "Sonal Kothari",
+        name: "Sonal Runwal",
         role: "Senior Executive Digital Marketing",
         image: "/profiles/Sonal Jain1.jpg",
         linkedin: "https://www.linkedin.com/in/sonalkothari287/",

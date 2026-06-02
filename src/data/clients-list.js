@@ -33,7 +33,6 @@ export const clientsList = [
       { name: "Dr. Batra", src: "/assets/clients/Dr. batra Logo.png", width: 420, height: 210, mwidth: 300, mheight: 150 },
       { name: "KVT", src: "/assets/clients/KVT Logo.png", width: 420, height: 210, mwidth: 300, mheight: 150 },
       { name: "Nikhil Caterars", src: "/assets/clients/Nikhil Caterars Logo.jpeg", width: 420, height: 210, mwidth: 300, mheight: 150 },
-      { name: "Nitty Gritty", src: "/assets/clients/Nitty gritty logo.png", width: 420, height: 210, mwidth: 300, mheight: 150 },
       { name: "Petalsoft", src: "/assets/clients/Petalsoft.png", width: 420, height: 210, mwidth: 300, mheight: 150 },
       { name: "Revival", src: "/assets/clients/Revival Logo.PNG", width: 420, height: 210, mwidth: 300, mheight: 150 },
       { name: "Sapphire", src: "/assets/clients/Sapphire Logo.png", width: 420, height: 210, mwidth: 300, mheight: 150 },
