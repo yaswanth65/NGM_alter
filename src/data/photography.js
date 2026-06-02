@@ -1,6 +1,6 @@
 export const photography = [
   // ── Jewellery ──
-  { id: 1, image: "/photography/B_2 _Lock.jpg", subCategory: "Jewellery" },
+  // { id: 1, image: "/photography/B_2 _Lock.jpg", subCategory: "Jewellery" },
   { id: 2, image: "/photography/B_6_Front.jpg", subCategory: "Jewellery" },
   { id: 3, image: "/photography/B_10_Top.jpg", subCategory: "Jewellery" },
   { id: 4, image: "/photography/C_1_45.jpg", subCategory: "Jewellery" },
