@@ -1,7 +1,6 @@
 'use client';
 
 import { useLayoutEffect, useEffect, useRef, useState } from 'react';
-import Preloader from '@/components/global/Preloader';
 import { Link } from 'react-router-dom';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Image from '../components/common/Image'; // Ensure this path is correct in your setup
@@ -293,7 +292,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Preloader />
       <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
       <SEO
             title="Creative Digital Marketing Agency in Mumbai & Thane | Nitty Gritty Labz"
@@ -311,8 +309,9 @@ export default function HomePage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
+          onError={(e) => { e.target.style.display = 'none'; }}
         >
-          <source src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Website%20Loader%20Video.mp4" type="video/mp4" />
+          <source src="/videos/WebsiteLoaderVideo.mp4" type="video/mp4" />
         </video>
 
         {/* Black Radial Overlay (Clearer in the center, darker at the edges) */}
