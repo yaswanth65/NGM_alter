@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ChevronRight, Upload } from 'lucide-react';
+import SEO from "../components/common/SEO";
 
 const jobDetails = {
     "01": {
@@ -299,6 +300,12 @@ export default function CareerDetailPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20 relative overflow-hidden">
+            <SEO
+                title={job.title}
+                description={`Apply for ${job.title} position at Nitty Gritty Media. Join our team in Mumbai.`}
+                keywords={`${job.title.toLowerCase()}, Nitty Gritty careers, job in Mumbai`}
+                canonical={`https://nittygrittylabz.com/careers/${id}`}
+            />
             {/* Red Glow */}
             <div className="absolute top-[-100px] right-0 w-[600px] h-[600px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
 

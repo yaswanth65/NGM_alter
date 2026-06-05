@@ -24,6 +24,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "tailwindcss": "^4"
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4",
+    "vite-plugin-image-optimizer": "^2.0.3"
   }
 }

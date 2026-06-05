@@ -4,6 +4,11 @@ export const servicesData = [
   {
     id: "video-production",
     title: "Video Production",
+    seo: {
+      title: "Video Production Agency in Mumbai | DVCs, TVCs & Corporate Films",
+      description: "Professional video production services including DVCs, TVCs, corporate films, drone cinematography, and post-production for brands and businesses.",
+      keywords: "Video Production Agency Mumbai, Corporate Film Production, Drone Cinematography Mumbai, TVC Production Agency"
+    },
     intro: {
       tagline: "Not just visuals. Stories that move people to act.",
       paragraphs: [
@@ -109,12 +114,17 @@ export const servicesData = [
   },
   {
     id: "digital-marketing",
-    title: "Digital Marketing", // [cite: 58]
+    title: "Digital Marketing",
+    seo: {
+      title: "Digital Marketing Services in Mumbai & Thane | Nitty Gritty Labz",
+      description: "Boost your brand with digital marketing services including SEO, SEM, social media management, content strategy, and performance marketing by Nitty Gritty Labz.",
+      keywords: "Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai"
+    }, // [cite: 58]
     intro: {
       tagline: "Visibility is easy. Growth is intentional.", // [cite: 59]
       paragraphs: [
-        "Being present online isn’t enough anymore. What matters is how you’re seen, who you reach, and what they do next.", // [cite: 60]
-        "At Nitty Gritty Media, we don’t just “manage” digital platforms, we build systems that attract, engage, and convert." // [cite: 61]
+        "Being present online isn't enough anymore. What matters is how you're seen, who you reach, and what they do next.", // [cite: 60]
+        "At Nitty Gritty Media, we don't just \"manage\" digital platforms, we build systems that attract, engage, and convert." // [cite: 61]
       ]
     },
     whatWeCreate: {
@@ -132,7 +142,7 @@ export const servicesData = [
     },
     approach: {
       sectionTitle: "Our Approach", // [cite: 71]
-      tagline: "We don’t chase trends. We build direction.", // [cite: 72]
+      tagline: "We don't chase trends. We build direction.", // [cite: 72]
       blocks: [
         {
           heading: "Before execution, we define:", // [cite: 73]
@@ -151,21 +161,89 @@ export const servicesData = [
           ]
         }
       ],
-      conclusion: "Because growth doesn’t come from random posting, it comes from consistent, strategic action." // [cite: 81]
+      conclusion: "Because growth doesn't come from random posting, it comes from consistent, strategic action." // [cite: 81]
     },
     whyUs: {
       sectionTitle: "Why Nitty Gritty", // [cite: 82]
       paragraphs: [
         "We combine creativity with performance thinking.", // [cite: 83]
-        "Which means your brand doesn’t just look active, it actually grows.", // [cite: 84]
+        "Which means your brand doesn't just look active, it actually grows.", // [cite: 84]
         "No vanity metrics. No guesswork. Just focused strategies that deliver measurable results." // [cite: 85]
       ]
     },
-    cta: "If your digital presence isn’t driving business, it’s time to fix the strategy." // [cite: 87]
+    cta: "If your digital presence isn't driving business, it's time to fix the strategy." // [cite: 87]
+  },
+  {
+    id: "web-app-development",
+    title: "Web & App Development",
+    seo: {
+      title: "Web & App Development Company in Mumbai | Nitty Gritty Labz",
+      description: "Build responsive websites and scalable mobile apps with custom web design, e-commerce solutions, UI/UX optimization, and performance-focused development.",
+      keywords: "Website Development Mumbai, App Development Company, E-commerce Website Development, Custom Web Design Agency"
+    },
+    intro: {
+      tagline: "Digital experiences that work as hard as you do.",
+      paragraphs: [
+        "Your website or app is often the first real interaction someone has with your brand.",
+        "At Nitty Gritty Media, we build digital products that are fast, intuitive, and built to convert.",
+        "Because a great product experience is the difference between a visitor and a customer."
+      ]
+    },
+    whatWeCreate: {
+      sectionTitle: "What We Build",
+      subtitle: "We focus on performant, scalable digital solutions.",
+      items: [
+        "Responsive Websites",
+        "Web Applications",
+        "Mobile Apps (iOS & Android)",
+        "E-commerce Platforms",
+        "CMS & Dashboard Interfaces",
+        "UI/UX Design & Prototyping"
+      ],
+      conclusion: "Every product is built with performance, usability, and growth in mind."
+    },
+    approach: {
+      sectionTitle: "Our Approach",
+      tagline: "We don't just code. We solve problems.",
+      blocks: [
+        {
+          heading: "Before we write a line of code, we understand:",
+          items: [
+            "Your business goals",
+            "Your user's needs",
+            "The problem we're solving"
+          ]
+        },
+        {
+          heading: "Then we build with purpose:",
+          items: [
+            "Strategy & Architecture",
+            "Design & Prototyping",
+            "Development & Testing",
+            "Deployment & Optimization"
+          ]
+        }
+      ],
+      conclusion: "Because great code without strategy is just pixels."
+    },
+    whyUs: {
+      sectionTitle: "Why Nitty Gritty",
+      paragraphs: [
+        "We combine design thinking with technical expertise.",
+        "Which means your digital product doesn't just look good, it performs.",
+        "No bloat. No unnecessary complexity. Just clean, functional, scalable solutions."
+      ]
+    },
+    cta: "If your business deserves a digital presence that actually works, let's build it."
   },
   {
     id: "graphic-design",
-    title: "Graphic Design", // [cite: 88]
+    title: "Graphic Design",
+    seo: {
+      title: "Graphic Designing & Branding Agency | Nitty Gritty Labz",
+      description: "Creative graphic design services including brand identity, logo design, UI/UX design, and social media creatives tailored for modern businesses.",
+      keywords: "Graphic Design Agency Mumbai, Brand Identity Design, Logo Design Agency, Social Media Creative Design"
+    }, // [cite: 88]
     intro: {
       tagline: "Design that communicates before you speak.", // [cite: 89]
       paragraphs: [

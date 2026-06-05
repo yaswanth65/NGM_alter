@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 
 
 
@@ -48,7 +49,7 @@ const ServiceSection = ({ title, slug, features, description, imageSrc, reverse 
                 </p>
 
                 <Link to={`/services/${slug}`} className="inline-block group relative px-8 py-3 rounded-full border border-white/20 overflow-hidden transition-all duration-300 hover:border-red-500">
-                    <span className="relative z-10 text-white font-bold tracking-widest text-xs uppercase">Read More</span>
+                    <span className="relative z-10 text-white font-bold tracking-widest text-xs uppercase">Know More</span>
                     <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </Link>
             </div>
@@ -59,19 +60,19 @@ const ServiceSection = ({ title, slug, features, description, imageSrc, reverse 
 export default function ServicesPage() {
     const services = [
         {
+            title: "Video Production",
+            slug: "video-production",
+            features: ["DVCs & TVCs", "Corporate Films", "Drone Cinematography", "Post-Production"],
+            description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
+            imageSrc: "/services/Video Production 1.jpg",
+            reverse: false
+        },
+        {
             title: "Photography",
             slug: "photography",
             features: ["Portrait Photography", "Product Photography", "Event Coverage", "Editorial"],
             description: "Professional photography for brands, events, and products. High-quality visuals that resonate with your audience.",
             imageSrc: "/services/Photography 2.jpg",
-            reverse: false
-        },
-        {
-            title: "Web & App Development",
-            slug: "web-app-development",
-            features: ["Custom Web Design", "Mobile App Development", "E-commerce Solutions", "Performance Optimization"],
-            description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
-            imageSrc: "/services/Web and App Development.jpg",
             reverse: true
         },
         {
@@ -83,11 +84,11 @@ export default function ServicesPage() {
             reverse: false
         },
         {
-            title: "Video Production",
-            slug: "video-production",
-            features: ["DVCs & TVCs", "Corporate Films", "Drone Cinematography", "Post-Production"],
-            description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
-            imageSrc: "/services/Video Production 1.jpg",
+            title: "Web & App Development",
+            slug: "web-app-development",
+            features: ["Custom Web Design", "Mobile App Development", "E-commerce Solutions", "Performance Optimization"],
+            description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
+            imageSrc: "/services/Web and App Development.jpg",
             reverse: true
         },
         {
@@ -102,6 +103,12 @@ export default function ServicesPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
+            <SEO
+            title="Digital Marketing, Production & Development Services | Nitty Gritty Labz"
+        description="Explore digital marketing, video production, photography, graphic design, branding, and web & app development services tailored for modern brands and businesses."
+        keywords="Digital Marketing Agency Mumbai, Video Production Agency, Web Development Mumbai, Graphic Design Agency, Branding Agency"
+        canonical="https://nittygrittylabz.com/services"
+            />
             {/* Background Glows */}
             <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
 

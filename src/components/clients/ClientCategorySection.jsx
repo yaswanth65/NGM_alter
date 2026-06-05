@@ -16,7 +16,7 @@ const ClientCategorySection = ({ title, logos }) => {
             </div>
 
             <div className="bg-neutral-900/50 border border-white/10 rounded-[2rem] p-6 md:p-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     {logos.map((logo, index) => {
                         const isObject = typeof logo === 'object' && logo !== null;
                         const logoSrc = isObject ? logo.src : null;
@@ -24,13 +24,19 @@ const ClientCategorySection = ({ title, logos }) => {
 
                         return (
                             <div key={index} className="flex items-center justify-center aspect-[4/3] group">
-                                <div className="w-full h-full bg-white/5 rounded-xl border border-white/5 flex items-center justify-center p-1 transition-all duration-300 group-hover:bg-white/10 group-hover:border-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)] overflow-hidden">
+                                <div className="w-full h-full bg-white/5 rounded-xl border border-white/5 flex items-center justify-center p-1 transition-all duration-300 group-hover:bg-white group-hover:border-white/20 hover:shadow-[0_0_20px_rgba(220,38,38,0.2)] overflow-hidden">
                                     {logoSrc ? (
-                                        <img
-                                            src={logoSrc}
-                                            alt={logoName}
-                                            className="w-full h-full object-contain transition-all duration-500"
-                                        />
+                                        <>
+                                            <style>{`
+                                                .logo-ctrl-${index} { width: ${logo.mwidth}px; height: ${logo.mheight}px; }
+                                                @media (min-width: 768px) { .logo-ctrl-${index} { width: ${logo.width}px; height: ${logo.height}px; } }
+                                            `}</style>
+                                            <img
+                                                src={logoSrc}
+                                                alt={logoName}
+                                                className={`logo-ctrl-${index} object-contain transition-all duration-500`}
+                                            />
+                                        </>
                                     ) : (
                                         <span className="text-neutral-500 font-medium text-center text-sm group-hover:text-white transition-colors">
                                             {logoName}

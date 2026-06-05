@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/common/SEO";
 
 const WEB3FORMS_KEY = "6a43d236-7387-4a4a-83a6-4d9b2dfcd235";
 
@@ -38,6 +39,12 @@ export default function ContactPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32">
+            <SEO
+            title="Contact Nitty Gritty Labz | Digital Marketing Agency in Mumbai"
+        description="Get in touch with Nitty Gritty Labz for branding, digital marketing, social media management, content production, and creative strategy solutions."
+        keywords="Contact Nitty Gritty Labz, Digital Marketing Agency Mumbai, Social Media Agency Thane, Branding Agency, Creative Strategy"
+        canonical="https://nittygrittylabz.com/contact"
+            />
             {/* Hero Section */}
             <div className="relative mb-24">
                 {/* Red Glow */}
@@ -154,7 +161,9 @@ export default function ContactPage() {
                                 <div className="flex flex-wrap gap-4">
                                     {[
                                         {
-                                            name: "Youtube", icon: (
+                                            name: "Youtube",
+                                            url: "https://youtube.com/@nittygrittylabz",
+                                            icon: (
                                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
                                             )
                                         },
@@ -166,14 +175,23 @@ export default function ContactPage() {
                                             )
                                         },
                                         {
-                                            name: "Instagram",
-                                            url: "https://www.instagram.com/nitty_gritty_media/",
+                                            name: "Instagram Labz",
+                                            url: "https://www.instagram.com/nitty_gritty_labz/",
                                             icon: (
                                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                             )
                                         },
                                         {
-                                            name: "X", icon: (
+                                            name: "Instagram Studio",
+                                            url: "https://www.instagram.com/nitty_gritty_studio/",
+                                            icon: (
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                            )
+                                        },
+                                        {
+                                            name: "X",
+                                            url: "https://x.com/nittygrittymedia",
+                                            icon: (
                                                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                                             )
                                         },

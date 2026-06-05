@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import { projects } from "@/data/projects";
+import SEO from "../components/common/SEO";
 import { photography } from '../data/photography';
 
 const mainCategories = ["Videos", "Websites", "Social Media", "SEO", "Photography"];
@@ -11,11 +12,16 @@ const subCategories = [
     "Brand Documentaries",
     "Corporate Films",
     "Podcast",
-    "Advertisement",
-    "Promos",
-    "Business Explainer",
     "Testimonial",
+    "Advertisement",
+    "Product Videos",
+    "Product Information",
+    "Informative",
+    "Food Recipes",
+    "Promos",
+    "Talking Head",
 ];
+const photoSubCategories = ["All", "Jewellery", "Food", "Beauty Products", "Stationery", "Interior"];
 
 export default function PortfolioPage() {
     const [activeMainCategory, setActiveMainCategory] = useState("Videos");
@@ -31,6 +37,12 @@ export default function PortfolioPage() {
         });
     }, [activeMainCategory, activeSubCategory]);
 
+    const filteredPhotography = useMemo(() => {
+        return activeSubCategory === "All"
+            ? photography
+            : photography.filter((item) => item.subCategory === activeSubCategory);
+    }, [activeSubCategory]);
+
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
     const openLightbox = (index) => setSelectedImageIndex(index);
@@ -38,16 +50,22 @@ export default function PortfolioPage() {
 
     const showNext = (e) => {
         e.stopPropagation();
-        setSelectedImageIndex((prev) => (prev + 1) % photography.length);
+        setSelectedImageIndex((prev) => (prev + 1) % filteredPhotography.length);
     };
 
     const showPrev = (e) => {
         e.stopPropagation();
-        setSelectedImageIndex((prev) => (prev - 1 + photography.length) % photography.length);
+        setSelectedImageIndex((prev) => (prev - 1 + filteredPhotography.length) % filteredPhotography.length);
     };
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20">
+            <SEO
+            title="Our Work & Portfolio | Nitty Gritty Labz"
+        description="Explore the creative portfolio of Nitty Gritty Labz featuring branding projects, social media campaigns, studio shoots, digital marketing creatives, and content production."
+        keywords="Creative Portfolio, Branding Projects, Social Media Campaigns, Digital Marketing Creatives, Content Production"
+        canonical="https://nittygrittylabz.com/portfolio"
+            />
             <div className="max-w-7xl mx-auto px-6 pt-15">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center mb-16 text-center">
@@ -68,7 +86,7 @@ export default function PortfolioPage() {
                     {mainCategories.map((category) => (
                         <button
                             key={category}
-                            onClick={() => setActiveMainCategory(category)}
+                            onClick={() => { setActiveMainCategory(category); setActiveSubCategory("All"); setSelectedImageIndex(null); }}
                             className={`px-8 py-2 rounded-full border transition-all duration-300 ${activeMainCategory === category
                                 ? "border-red-500 bg-red-500/10 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)]"
                                 : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-white"
@@ -81,10 +99,10 @@ export default function PortfolioPage() {
 
                 {/* Sub Categories */}
                 <div className="flex justify-center flex-wrap gap-3 mb-16">
-                    {subCategories.map((category) => (
+                    {(activeMainCategory === "Photography" ? photoSubCategories : subCategories).map((category) => (
                         <button
                             key={category}
-                            onClick={() => setActiveSubCategory(category)}
+                            onClick={() => { setActiveSubCategory(category); setSelectedImageIndex(null); }}
                             className={`px-6 py-2 rounded-full border text-sm transition-all duration-300 ${activeSubCategory === category
                                 ? "border-white bg-white text-black"
                                 : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-white"
@@ -103,11 +121,12 @@ export default function PortfolioPage() {
                                 {/* Image Placeholder */}
                                 {project.videoUrl && (
                                     <div className="absolute inset-0 z-0">
-                                        <img
-                                            src={`https://img.youtube.com/vi/${project.videoUrl.split('/').pop()}/hqdefault.jpg`}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                                        />
+                            <img
+                                src={`https://img.youtube.com/vi/${project.videoUrl.split('/').pop()}/hqdefault.jpg`}
+                                alt={project.title}
+                                loading="lazy"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                            />
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
                                     </div>
                                 )}
@@ -119,19 +138,16 @@ export default function PortfolioPage() {
                                     </div>
 
                                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                        <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium mb-3 border border-white/10">
-                                            {project.subCategory}
-                                        </div>
                                         <h3 className="text-lg font-bold font-outfit leading-tight group-hover:text-red-400 transition-colors">
                                             {project.title}
                                         </h3>
                                     </div>
                                 </div>
 
-                                {/* Top Left Badge (Optional based on design) */}
+                                {/* Top Left Badge */}
                                 <div className="absolute top-4 left-4">
                                     <div className="px-3 py-1 bg-neutral-900/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-wider font-bold border border-white/10">
-                                        Brand Documentary
+                                        {project.subCategory}
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +157,7 @@ export default function PortfolioPage() {
 
                 {activeMainCategory === "Photography" && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
-                        {photography.map((item, index) => (
+                        {filteredPhotography.map((item, index) => (
                             <div
                                 key={item.id}
                                 className="relative overflow-hidden rounded-xl cursor-pointer group aspect-square bg-neutral-900"
@@ -150,6 +166,7 @@ export default function PortfolioPage() {
                                 <img
                                     src={item.image}
                                     alt={`Gallery ${item.id}`}
+                                    loading="lazy"
                                     className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000 ease-out group-hover:scale-105"
                                 />
                                 {/* Minimalist Premium Overlay */}
@@ -199,14 +216,14 @@ export default function PortfolioPage() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
-                                src={photography[selectedImageIndex].image}
+                                src={filteredPhotography[selectedImageIndex].image}
                                 className="max-w-full max-h-[80vh] object-contain shadow-2xl rounded-sm animate-in fade-in zoom-in duration-500 ease-out"
                                 alt="Enlarged gallery view"
                             />
 
                             {/* Index Counter */}
                             <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/40 tracking-widest text-sm uppercase mt-[-10]">
-                                {selectedImageIndex + 1} <span className="mx-2">/</span> {photography.length}
+                                {selectedImageIndex + 1} <span className="mx-2">/</span> {filteredPhotography.length}
                             </div>
                         </div>
 

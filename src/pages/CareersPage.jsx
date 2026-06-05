@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import SEO from "../components/common/SEO";
 
 const openings = [
     { id: "01", title: "SEO EXECUTIVE", location: "Mumbai" },
@@ -25,6 +26,12 @@ export default function CareersPage() {
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20 relative overflow-hidden">
+            <SEO
+                title="Careers"
+                description="Join the Nitty Gritty Media team. Explore career opportunities in video production, digital marketing, design, and more."
+                keywords="Nitty Gritty careers, jobs at Nitty Gritty, creative agency jobs Mumbai, media production careers"
+                canonical="https://nittygrittylabz.com/careers"
+            />
             {/* Red Glow */}
             <div className="absolute top-[-100px] right-0 w-[600px] h-[600px] bg-red-600/10 blur-[150px] -z-10 pointer-events-none"></div>
             <div className="absolute top-[20%] left-[-100px] w-[400px] h-[400px] bg-red-600/5 blur-[120px] -z-10 pointer-events-none"></div>
@@ -35,7 +42,7 @@ export default function CareersPage() {
                     CAREER
                 </h1>
                 <div className="flex items-center justify-center gap-2 text-neutral-500 text-sm tracking-widest uppercase font-medium">
-                    <span>Home</span>
+                    <Link to="/" className="hover:text-white transition-colors">Home</Link>
                     <span>/</span>
                     <span className="text-white">Career</span>
                 </div>
@@ -108,64 +115,8 @@ export default function CareersPage() {
                 </div>
             </section>
 
-            {/* LIFE AT NITTY GRITTY Section */}
-            <section className="max-w-7xl mx-auto px-6 mb-32">
-                <div className="border border-white/10 rounded-3xl bg-[#0a0a0a] overflow-hidden">
-                    <div className="p-8 md:p-12 border-b border-white/10">
-                        <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-6 uppercase tracking-wider text-white">
-                            LIFE AT NITTY GRITTY
-                        </h2>
-                        <div className="max-w-3xl">
-                            <p className="text-neutral-400 text-sm md:text-base leading-relaxed mb-4">
-                                There's more to work here than briefs and deadlines. From festival celebrations and team lunches to month-end team activities and the occasional fun real shoots, there's always something to bring the team together. The energy here is easygoing but focused, with people who back each other and ideas that build through conversation.
-                            </p>
-                            <p className="text-neutral-500 text-sm font-medium">
-                                See the roles that click? Slide into our inbox.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="p-4 md:p-8">
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 h-[400px] md:h-[500px]">
-                            {/* Image 1 - Portrait */}
-                            <div className="col-span-1 h-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Office" className="w-full h-full object-cover" />
-                            </div>
-                            {/* Image 2 - Large Landscape/Group */}
-                            <div className="col-span-2 h-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                                <img src="https://images.unsplash.com/photo-1522071823991-00156c36b0ce?auto=format&fit=crop&q=80&w=1200" alt="Team Group" className="w-full h-full object-cover" />
-                            </div>
-                            {/* Image 3 - Portrait */}
-                            <div className="col-span-1 h-full rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Discussion" className="w-full h-full object-cover" />
-                            </div>
-                            {/* Image 4 - Square with text */}
-                            <div className="col-span-1 h-full rounded-2xl overflow-hidden bg-neutral-900 flex flex-col items-center justify-center p-6 text-center border border-white/5 relative group">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Create" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity" />
-                                <span className="relative z-10 text-4xl font-outfit font-black text-white italic">
-                                    &#123;create&#125;
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* FEATURED ON Section */}
-            <section className="max-w-7xl mx-auto px-6 mb-20">
-                <h2 className="text-2xl font-bold font-outfit mb-12 uppercase tracking-widest text-white">
-                    FEATURED ON
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-l border-t border-white/5">
-                    {brands.map((brand, index) => (
-                        <div key={index} className="aspect-[3/2] border-r border-b border-white/5 flex items-center justify-center p-6 group hover:bg-white/10 transition-all duration-300 grayscale hover:grayscale-0 bg-[#050505]">
-                            <span className="text-neutral-500 group-hover:text-white font-bold text-center text-[10px] md:text-sm uppercase tracking-tighter transition-all duration-300 transform group-hover:scale-110">
-                                {brand}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            
+         
         </div>
     );
 }

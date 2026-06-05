@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+    const { pathname } = useLocation();
+    const isStudio = pathname === "/studio";
     return (
         <footer className="relative z-20 bg-black text-white py-[clamp(3rem,8vw,5rem)] border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-[clamp(1.5rem,4vw,3rem)]">
@@ -17,10 +19,18 @@ export default function Footer() {
                             </p>
 
                             <div className="text-red-600 hover:text-red-500 transition-colors font-bold tracking-[0.5em] uppercase text-sm">
-                                <a href="/studio">
+                                <Link to="/studio">
                                     Explore our Studio
-                                </a>
+                                </Link>
                             </div>
+                        </div>
+                        <div>
+                            <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Studio</h3>
+                            <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed max-w-xs">
+                                Office no. 405, Centura Square, Rd Number 27,<br />
+                                opp. Lanxess, Wagle Industrial Estate,<br />
+                                Thane West, Thane, Maharashtra 400604
+                            </p>
                         </div>
                     </div>
 
@@ -30,14 +40,14 @@ export default function Footer() {
                             <h3 className="text-[clamp(1.25rem,3vw,1.5rem)] font-bold mb-[clamp(1rem,3vw,1.5rem)] text-white">Services</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[clamp(1.5rem,4vw,2rem)] gap-y-[1rem]">
                                 <ul className="space-y-[clamp(0.75rem,2vw,1rem)] text-[clamp(0.875rem,1.5vw,1rem)] text-neutral-400">
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Film & Photography</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Websites and Apps</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
+                                    <li><Link to="/services/photography" className="hover:text-white transition-colors">Film & Photography</Link></li>
+                                    <li><Link to="/services/web-app-development" className="hover:text-white transition-colors">Websites and Apps</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
                                 </ul>
                                 <ul className="space-y-[clamp(0.75rem,2vw,1rem)] text-[clamp(0.875rem,1.5vw,1rem)] text-neutral-400">
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Digital Marketing</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Graphic Designing</Link></li>
-                                    <li><Link to="/services" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Digital Marketing</Link></li>
+                                    <li><Link to="/services/graphic-design" className="hover:text-white transition-colors">Graphic Designing</Link></li>
+                                    <li><Link to="/services/digital-marketing" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -83,22 +93,17 @@ export default function Footer() {
                         <div>
                             <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Phone</h3>
                             <p className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] break-words">
-                                +91 9833401634 / +91 9773636203
+                                +91 8976434267{isStudio && "  /  +91 9997355769"}
                             </p>
                         </div>
                         <div>
-                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Business</h3>
-                            {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:business@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                business@nittygrittyverse.com
+                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Mail</h3>
+                            <a href="mailto:business@nittygrittylabz.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
+                                business@nittygrittylabz.com
                             </a>
                         </div>
                         <div>
-                            <h3 className="font-bold mb-[clamp(0.5rem,2vw,1rem)] text-[clamp(1.125rem,2vw,1.25rem)] text-white">Careers</h3>
-                            {/* break-all ensures long emails wrap cleanly on tiny screens */}
-                            <a href="mailto:careers@nittygrittyverse.com" className="text-neutral-400 text-[clamp(0.875rem,1.5vw,1rem)] hover:text-white transition-colors break-all">
-                                careers@nittygrittyverse.com
-                            </a>
+                           
                         </div>
                     </div>
                 </div>
@@ -110,9 +115,10 @@ export default function Footer() {
                     </div>
                     {/* flex-wrap allows links to jump to the next line on mobile instead of forcing horizontal scrolling */}
                     <div className="flex flex-wrap justify-center md:justify-end gap-x-[clamp(1rem,3vw,1.5rem)] gap-y-[0.5rem] uppercase tracking-wider font-medium text-white">
-                        <Link to="#" className="hover:text-red-500 transition-colors">Youtube</Link>
+                        <a href="https://youtube.com/@nittygrittylabz" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Youtube</a>
                         <a href="https://www.linkedin.com/company/nittygrittymedia/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">LinkedIn</a>
-                        <a href="https://www.instagram.com/nitty_gritty_media/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
+                        <a href="https://www.instagram.com/nitty_gritty_labz/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a>
+                        <a href="https://www.instagram.com/nitty_gritty_studio/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram Studio</a>
                         <a href="https://www.facebook.com/NGMAdvertising2020" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Facebook</a>
                     </div>
                 </div>

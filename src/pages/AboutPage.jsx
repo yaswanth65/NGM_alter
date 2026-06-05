@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import TimelineSlider from "@/components/about/TimelineSlider";
 import ContactSection from "@/components/global/ContactSection";
+import SEO from "../components/common/SEO";
 
 export default function AboutPage() {
     const stats = [
@@ -13,39 +14,45 @@ export default function AboutPage() {
     ];
 
 
-    const team = [
-        {
-            name: "Pratik Jambhale",
-            role: "Founder",
-            image: "/profiles/Pratik Jambhale.png",
-            linkedin: "https://www.linkedin.com/in/pratik-jambhale-64b85270/",
-            description: "A dynamic visual storyteller with 10+ years of media experience. He crafts impactful content across film, digital, and branded formats."
-        },
-        {
-            name: "Anoop Pawar",
-            role: "Post-Production Supervisor",
-            image: "/profiles/Anoop Pawar.jpg",
-            linkedin: "https://www.linkedin.com/in/anooppawar/",
-            description: "I transform raw footage into compelling visual stories. From handling end-to-end post-production to crafting seamless, engaging edits, I create content that doesn't just look good - it connects, resonates, and leaves a lasting impact."
-        },
-        {
-            name: "Shashank Dalvi",
-            role: "Director of Photography",
-            image: "/profiles/Shashank Dalvi.png",
-            linkedin: "https://www.linkedin.com/in/shashank-dalvi-21601428/",
-            description: "A Seasoned Photographer with 9+ years of experience in commercial photography and cinematography, with an in depth understanding of current trends and creative visualisations"
-        },
-        {
-            name: "Abhishek Patankar",
-            role: "Content Head",
-            image: "/profiles/Abhishek Patankar.png",
-            linkedin: "https://www.linkedin.com/in/abhishek-patankar-246a98290/",
-            description: "L&D professional with 12+ years of experience, now an actor, voiceover artist, scriptwriter and content strategist, with natural flair for storytelling across film, media and brand content."
-        }
-    ];
+  const team = [
+    {
+        name: "Pratik Jambhale",
+        role: "Founder",
+        image: "/profiles/Pratik Jambhale1.jpg",
+        linkedin: "https://www.linkedin.com/in/pratik-jambhale-64b85270/",
+        description: "A dynamic visual storyteller with 10+ years of media experience. He crafts impactful content across film, digital, and branded formats."
+    },
+    {
+        name: "Sonal Runwal",
+        role: "Senior Executive Digital Marketing",
+        image: "/profiles/Sonal Jain1.jpg",
+        linkedin: "https://www.linkedin.com/in/sonalkothari287/",
+        description: "Digital marketing professional with 5 years of experience in social media strategy, content creation, and campaign management, delivering measurable growth and scalable results."
+    },
+    {
+        name: "Anoop Pawar",
+        role: "Post-Production Supervisor",
+        image: "/profiles/Anoop Pawar1.jpg",
+        linkedin: "https://www.linkedin.com/in/anooppawar/",
+        description: "Managing end-to-end post production and transforming raw footage into polished and engaging visual stories with expertise in editing, color grading, sound design, and motion graphics."
+    },
+    {
+        name: "Abhishek Patankar",
+        role: "Content Head",
+        image: "/profiles/Abhishek Patankar.png",
+        linkedin: "https://www.linkedin.com/in/abhishek-patankar-246a98290/",
+        description: "L&D professional with 12+ years of experience, now an actor, voiceover artist, scriptwriter, and content strategist, with a natural flair for storytelling across film, media, and brand content."
+    }
+];
 
     return (
         <main className="bg-black min-h-screen text-white pt-32">
+            <SEO
+            title="About Nitty Gritty Labz | Creative Marketing & Branding Agency"
+        description="Learn more about Nitty Gritty Labz, a creative marketing and branding agency focused on content, strategy, design, and digital growth for brands across industries."
+        keywords="Branding Agency Mumbai, Creative Marketing Agency, Digital Growth, Content Strategy, Brand Identity Design"
+        canonical="https://nittygrittylabz.com/about"
+            />
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto px-6 mb-24 text-center pt-15">
                 <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">

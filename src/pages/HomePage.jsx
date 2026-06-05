@@ -6,6 +6,7 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import Image from '../components/common/Image'; // Ensure this path is correct in your setup
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/common/SEO';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -193,10 +194,10 @@ export default function HomePage() {
           scrollTrigger: {
             trigger: showreelSectionRef.current,
             start: "top top",
-            end: "+=200%",
+            end: "+=100%",
             pin: true,
-            scrub: 1,
-            anticipatePin: 1,
+            scrub: true,
+            anticipatePin: 0,
             onUpdate: (self) => {
               const isCurrentlyExpanded = self.progress === 1;
 
@@ -219,7 +220,7 @@ export default function HomePage() {
           height: "85vh",
           top: "10vh",
           borderRadius: "0px",
-          ease: "power2.inOut",
+          ease: "none",
           autoRound: false, // CRITICAL FIX: Stops width/height sub-pixel jittering
           force3D: true,
         }, 0);
@@ -227,11 +228,11 @@ export default function HomePage() {
         tl.to(showreelTitleRef.current, {
           y: -100,
           opacity: 0.5,
-          ease: "power2.inOut",
+          ease: "none",
         }, 0);
 
         if (verveTextRef.current) {
-          tl.to(verveTextRef.current, { scale: 1.5, opacity: 0, ease: "power2.inOut" }, 0);
+          tl.to(verveTextRef.current, { scale: 1.5, opacity: 0, ease: "none" }, 0);
         }
 
         if (heroRef.current) {
@@ -290,7 +291,14 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
+    <>
+      <div ref={mainRef} className="relative bg-black min-h-screen text-white font-sans selection:bg-red-600 selection:text-white">
+      <SEO
+            title="Creative Digital Marketing Agency in Mumbai & Thane | Nitty Gritty Labz"
+        description="Nitty Gritty Labz is a creative digital marketing agency offering Videography, Photography, social media management, branding, content creation, performance marketing, website solutions, and studio production services for modern businesses."
+        keywords="Digital Marketing Agency Mumbai, Social Media Management Thane, Performance Marketing Agency, SEO Services Mumbai, Creative Digital Marketing, Branding Agency Mumbai"
+        canonical="https://nittygrittylabz.com"
+      />
       {/* HERO SECTION */}
       <section ref={heroRef} className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-0 bg-black">
 
@@ -301,8 +309,9 @@ export default function HomePage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
+          onError={(e) => { e.target.style.display = 'none'; }}
         >
-          <source src="https://7aop7sgroelxkagz.public.blob.vercel-storage.com/Website%20Loader%20Video.mp4" type="video/mp4" />
+          <source src="/videos/WebsiteLoaderVideo.mp4" type="video/mp4" />
         </video>
 
         {/* Black Radial Overlay (Clearer in the center, darker at the edges) */}
@@ -315,9 +324,9 @@ export default function HomePage() {
         <div className="relative z-10 text-center px-[clamp(1.5rem,4vw,3rem)] max-w-7xl mx-auto pt-10">
           <h1 className="text-[clamp(2.5rem,6vw+1rem,5.5rem)] font-bold tracking-tight leading-[1.1] text-white uppercase mb-[clamp(1.5rem,4vw,2rem)]">
             Explore the true potential <br />
-            <span className="text-neutral-400">of your brand</span>
+            <span className="text-white">of your brand</span>
           </h1>
-          <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-neutral-400 max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
+          <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-white max-w-2xl mx-auto mb-[clamp(2rem,5vw,3rem)] font-medium leading-relaxed">
             We help brands grow through video-led marketing that turns attention into engagement, leads, and revenue.
           </p>
           <Link to="/contact" className="inline-block px-[clamp(2rem,5vw,2.5rem)] py-[clamp(0.75rem,2vw,1rem)] rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300 group">
@@ -415,12 +424,17 @@ export default function HomePage() {
         {/* Other Sections */}
 
         <AboutUsSection />
+
+        {/* Rotating Marquee Strip */}
+        <MarqueeStrip />
+
         <ServicesSection />
         {/* <StatsBarSection /> */}
         <TrustedBySection />
 
       </div>
     </div>
+    </>
   );
 }
 
@@ -429,7 +443,7 @@ export default function HomePage() {
 // ----------------------------------------------------------------------
 const trustedPeople = [
   "/homeLogos/Bellezza Logo.png",
-  "/homeLogos/Dr. batra Logo.png",
+  "/homeLogos/image.png",
   "/homeLogos/Intellarc Communications Logo.png",
   "/homeLogos/Muthoot Exim Logo.png",
   "/homeLogos/Unboxing Real Estate Logo.png",
@@ -563,7 +577,7 @@ function AboutUsSection() {
 
           <div>
             <Link to="/about" className="inline-block px-[clamp(2rem,5vw,2.5rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] rounded-full border border-white/20 text-[clamp(0.7rem,1vw,0.75rem)] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300">
-              Read More
+              Know More
             </Link>
           </div>
         </div>
@@ -650,31 +664,94 @@ function StatsBarSection() {
   );
 }
 
+const MarqueeStrip = () => {
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el || !el.children.length) return;
+    let pos = 0;
+    let raf;
+    const frame = () => {
+      pos += 0.8;
+      const first = el.children[0];
+      if (first && first.getBoundingClientRect().right < 0) {
+        el.appendChild(first);
+        pos -= first.offsetWidth;
+      }
+      el.style.transform = `translateX(${-pos}px)`;
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div className="relative w-full bg-gradient-to-r from-black via-neutral-900/80 to-black border-y border-red-600/20 py-6 overflow-hidden">
+      <div ref={trackRef} className="flex" style={{ whiteSpace: 'nowrap' }}>
+        {Array.from({ length: 10 }).map((_, i) => (
+          <span key={i} className="text-[clamp(1.125rem,3vw,1.75rem)] font-black tracking-[0.15em] uppercase bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent" style={{ flex: 'none', margin: 0, padding: 0 }}>
+            We build brands that people remember and businesses that grow <span className="text-red-600/60 text-[clamp(0.75rem,2vw,1rem)]">◆</span>{'\u00A0\u00A0\u00A0\u00A0\u00A0'}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // ----------------------------------------------------------------------
 // OUR SERVICES SECTION
 // ----------------------------------------------------------------------
 const services = [
   {
     id: "01",
+    title: "VIDEO PRODUCTION",
+    slug: "video-production",
+    tagline: "Dynamic visual storytelling designed to engage.",
+    description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
+    buttonText: "Learn More",
+    icon: (
+      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+      </svg>
+    )
+  },
+  {
+    id: "02",
     title: "PHOTOGRAPHY",
     slug: "photography",
     tagline: "Capturing moments that tell a story.",
     description: "Professional photography for brands, events, and products. High-quality visuals that resonate with your audience.",
-    buttonText: "See our gallery",
+    buttonText: "Learn More",
     icon: (
-      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
         <circle cx="12" cy="13" r="3" />
       </svg>
     )
   },
   {
-    id: "02",
+    id: "03",
+    title: "DIGITAL MARKETING",
+    slug: "digital-marketing",
+    tagline: "Connecting your brand to the right audience.",
+    description: "Data-driven strategies across SEO, social media, and performance marketing to scale your presence and generate leads.",
+    buttonText: "Learn More",
+    icon: (
+      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 14 4-4" />
+        <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+      </svg>
+    )
+  },
+  {
+    id: "04",
     title: "WEB & APP DEVELOPMENT",
     slug: "web-app-development",
     tagline: "Building digital ecosystems for growth.",
     description: "Responsive websites and intuitive mobile applications. We code for performance, scalability, and seamless user experiences.",
-    buttonText: "View our stack",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
@@ -685,40 +762,12 @@ const services = [
     )
   },
   {
-    id: "03",
-    title: "DIGITAL MARKETING",
-    slug: "digital-marketing",
-    tagline: "Connecting your brand to the right audience.",
-    description: "Data-driven strategies across SEO, social media, and performance marketing to scale your presence and generate leads.",
-    buttonText: "Boost your brand",
-    icon: (
-      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m12 14 4-4" />
-        <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-      </svg>
-    )
-  },
-  {
-    id: "04",
-    title: "VIDEO PRODUCTION",
-    slug: "video-production",
-    tagline: "Dynamic visual storytelling designed to engage.",
-    description: "From conceptualization to post-production, we create impactful videos including DVCs, corporate films, and drone cinematography.",
-    buttonText: "See what we've filmed",
-    icon: (
-      <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="23 7 16 12 23 17 23 7" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-      </svg>
-    )
-  },
-  {
     id: "05",
     title: "GRAPHIC DESIGNING",
-    slug: "graphic-designing",
+    slug: "graphic-design",
     tagline: "Identity in every pixel.",
     description: "Creative visual communication: logos, brand identities, and marketing assets that define your brand's unique voice.",
-    buttonText: "Explore our designs",
+    buttonText: "Learn More",
     icon: (
       <svg className="w-[clamp(1.5rem,3vw,2rem)] h-[clamp(1.5rem,3vw,2rem)] text-neutral-400 group-hover:text-red-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 19l7-7 3 3-7 7-3-3z" />
