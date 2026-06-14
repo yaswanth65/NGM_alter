@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/((?!assets/|homeLogos/|photography/|profiles/|services/|videos/|robots.txt|sitemap.xml).*)" , "destination": "/" }
   ]
 }
