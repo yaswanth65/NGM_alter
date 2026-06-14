@@ -134,7 +134,7 @@ export default function Preloader() {
                 loop
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none"
-                src="/assets/banner-video.mp4"
+                src="/assets/banner.mp4"
             />
 
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_10%,rgba(0,0,0,0.9)_100%)]"></div>
