@@ -20,6 +20,11 @@ export default function Preloader() {
         }
     }, []);
 
+    useEffect(() => {
+        const timer = setTimeout(() => setIsVideoReady(true), 4000);
+        return () => clearTimeout(timer);
+    }, []);
+
     useLayoutEffect(() => {
         const hasRun = sessionStorage.getItem("preloader-run");
         if (hasRun) {
@@ -100,7 +105,7 @@ export default function Preloader() {
                 playsInline
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none"
-                src="/assets/Banner%20Video(H1)%20(1).mp4"
+                src="/assets/banner-video.mp4"
                 onCanPlayThrough={() => setIsVideoReady(true)}
                 onError={() => setIsVideoReady(true)}
             />
