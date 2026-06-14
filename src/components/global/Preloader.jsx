@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,44 +12,51 @@ export default function Preloader() {
     const textRef = useRef(null);
 
     const [index, setIndex] = useState(0);
-    const [isVideoReady, setIsVideoReady] = useState(false);
+    const [showPreloader, setShowPreloader] = useState(false);
 
+    // Check sessionStorage on mount to determine if we should show the preloader
     useEffect(() => {
-        if (videoRef.current && videoRef.current.readyState >= 3) {
-            setIsVideoReady(true);
+        try {
+            const hasRun = sessionStorage.getItem("preloader-run");
+            if (!hasRun) {
+                setShowPreloader(true);
+            }
+        } catch (e) {
+            // Fail-safe: if sessionStorage is disabled or throws an error (e.g. Safari Private Mode), show preloader
+            setShowPreloader(true);
         }
     }, []);
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsVideoReady(true), 4000);
-        return () => clearTimeout(timer);
-    }, []);
+        if (!showPreloader) return;
 
-    useLayoutEffect(() => {
-        const hasRun = sessionStorage.getItem("preloader-run");
-        if (hasRun) {
-            if (containerRef.current) containerRef.current.style.display = "none";
-            return;
-        }
-
-        if (!isVideoReady) return;
-
+        // Lock body scrolling while preloader is active
         document.body.style.overflow = "hidden";
 
+        // Try to play video immediately
         if (videoRef.current) {
-            videoRef.current.play().catch(e => console.log("Video autoplay blocked:", e));
+            videoRef.current.play().catch(e => {
+                console.log("Video autoplay blocked or delayed:", e);
+            });
         }
 
-        const tl = gsap.timeline();
-        const transitionDuration = 0.1;
-        const holdDuration = 1 - (transitionDuration * 2);
+        const tl = gsap.timeline({
+            onComplete: () => {
+                handleComplete();
+            }
+        });
 
+        const transitionDuration = 0.15;
+        const holdDuration = 0.65;
+
+        // Initial text animation
         tl.fromTo(
             textRef.current,
             { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }
+            { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }
         );
 
+        // Sequence through words
         words.forEach((word, idx) => {
             if (idx === 0) return;
 
@@ -57,7 +64,7 @@ export default function Preloader() {
                 opacity: 0,
                 y: -15,
                 duration: transitionDuration,
-                delay: idx === 1 ? holdDuration - 0.2 : holdDuration,
+                delay: holdDuration,
                 onComplete: () => setIndex(idx),
             }).fromTo(
                 textRef.current,
@@ -66,31 +73,51 @@ export default function Preloader() {
             );
         });
 
+        // Exit animations
         tl.to(textRef.current, {
             opacity: 0,
             y: -10,
-            duration: 0.15,
+            duration: 0.2,
             delay: holdDuration,
             ease: "power2.inOut",
         }).to(containerRef.current, {
             yPercent: -100,
-            duration: 0.5,
+            duration: 0.6,
             ease: "power3.inOut",
-            onComplete: () => {
-                if (containerRef.current) containerRef.current.style.display = "none";
-                document.body.style.overflow = "auto";
-                sessionStorage.setItem("preloader-run", "true");
-
-                gsap.registerPlugin(ScrollTrigger);
-                ScrollTrigger.refresh();
-            },
         }, "-=0.1");
 
+        // Failsafe timer to force dismiss preloader after 4.5s
+        const failsafeTimer = setTimeout(() => {
+            console.warn("Preloader failsafe triggered");
+            handleComplete();
+        }, 4500);
+
+        function handleComplete() {
+            clearTimeout(failsafeTimer);
+            if (containerRef.current) {
+                containerRef.current.style.display = "none";
+            }
+            document.body.style.overflow = "auto";
+
+            try {
+                sessionStorage.setItem("preloader-run", "true");
+            } catch (e) {
+                console.warn("Could not set sessionStorage:", e);
+            }
+
+            // Register ScrollTrigger and refresh to ensure page animations align properly
+            gsap.registerPlugin(ScrollTrigger);
+            ScrollTrigger.refresh();
+        }
+
         return () => {
+            clearTimeout(failsafeTimer);
             tl.kill();
             document.body.style.overflow = "auto";
         };
-    }, [isVideoReady]);
+    }, [showPreloader]);
+
+    if (!showPreloader) return null;
 
     return (
         <div
@@ -106,8 +133,6 @@ export default function Preloader() {
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none"
                 src="/assets/banner-video.mp4"
-                onCanPlayThrough={() => setIsVideoReady(true)}
-                onError={() => setIsVideoReady(true)}
             />
 
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,transparent_10%,rgba(0,0,0,0.9)_100%)]"></div>
