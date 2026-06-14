@@ -128,8 +128,10 @@ export default function Preloader() {
         >
             <video
                 ref={videoRef}
+                autoPlay
                 muted
                 playsInline
+                loop
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none"
                 src="/assets/banner-video.mp4"
